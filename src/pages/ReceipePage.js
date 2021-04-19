@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
   },
+  gridList: {
+    width: '100%',
+  },
 }));
 
 export default function TitlebarGridList() {
@@ -26,7 +29,7 @@ export default function TitlebarGridList() {
 
   const APP_ID = '91c5bf0e';
   const APP_KEY = '92ad0d234662a6c6f9b2bdc527df3ecc';
-  const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`;
+  const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=5&to=37`;
 
   const [receipes, setReceipes] = useState([]);
   const getData = async () => {
@@ -42,26 +45,24 @@ export default function TitlebarGridList() {
   if (useMediaQuery(theme.breakpoints.up('md'))) cols = 4;
 
   return (
-      <Container className={classes.root}>
-        <GridList cellHeight={300} cols={cols} spacing={7}>
-        <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div">
-          <TextField
-            label='Search'
-            onChange={onChange}
-            onKeyDown={(e) => e.key === 'Enter' && getData()}
-          />
+    <Container className={classes.root}>
+      <GridList cellHeight={300} cols={cols} spacing={7}>
+        <GridListTile key='Subheader' cols={cols} style={{ height: 'auto' }}>
+          <ListSubheader component='div'>
+            <TextField
+              label='Search'
+              onChange={onChange}
+              onKeyDown={(e) => e.key === 'Enter' && getData()}
+            />
           </ListSubheader>
         </GridListTile>
-          {receipes.map((receipe) => (
-            <GridListTile key={uuidv4()} cols={1}>
-              <img src={receipe.recipe.image} alt={receipe.recipe.label} />
-              <GridListTileBar
-                title={receipe.recipe.label}
-              />
-            </GridListTile>
-          ))}
-        </GridList>
-      </Container>
+        {receipes.map((receipe) => (
+          <GridListTile key={uuidv4()} cols={1}>
+            <img src={receipe.recipe.image} alt={receipe.recipe.label} />
+            <GridListTileBar title={receipe.recipe.label} />
+          </GridListTile>
+        ))}
+      </GridList>
+    </Container>
   );
 }
