@@ -38,41 +38,43 @@ const NavBar = (props) => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position='static'>
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant='h6' className={classes.title}>
             Not So Sweet
           </Typography>
-            <div>
-              <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={open}
-                onClose={()=>setAnchorEl(null)}
-              >
-                <MenuItem onClick={()=>handleClose('/')}>Home</MenuItem>
-                <MenuItem onClick={()=>handleClose('/receipe')}>Receipe</MenuItem>
-                <MenuItem onClick={()=>handleClose('/lesson')}>Lesson</MenuItem>
-              </Menu>
-            </div>
+          <div className='mobile'>
+            <IconButton
+              aria-label='account of current user'
+              aria-controls='menu-appbar'
+              aria-haspopup='true'
+              onClick={handleMenu}
+              color='inherit'
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id='menu-appbar'
+              anchorEl={anchorEl}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={open}
+              onClose={() => setAnchorEl(null)}
+            >
+              <MenuItem onClick={() => handleClose('/')}>Home</MenuItem>
+              <MenuItem onClick={() => handleClose('/receipe')}>
+                Receipe
+              </MenuItem>
+              <MenuItem onClick={() => handleClose('/lesson')}>Lesson</MenuItem>
+            </Menu>
+          </div>
         </Toolbar>
       </AppBar>
     </div>

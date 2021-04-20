@@ -46,7 +46,12 @@ export default function TitlebarGridList() {
 
   return (
     <Container className={classes.root}>
-      <GridList cellHeight={300} cols={cols} spacing={7}>
+      <GridList
+        cellHeight={300}
+        cols={cols}
+        spacing={7}
+        className={classes.gridList}
+      >
         <GridListTile key='Subheader' cols={cols} style={{ height: 'auto' }}>
           <ListSubheader component='div'>
             <TextField
