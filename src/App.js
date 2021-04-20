@@ -27,18 +27,18 @@ const theme = createMuiTheme({
       },
     },
   },
-  palette:  {
-    primary:  {
+  palette: {
+    primary: {
       main: '#a96e44',
     },
-    background:{
-      paper: 'transparent',
+    background: {
+      paper: 'rgba(255,255,255,0.3)',
     },
-    common:{
-      white:'floralwhite'
+    common: {
+      white: 'floralwhite',
     },
-    text:{
-      primary: '#67401a'
+    text: {
+      primary: '#2d1606',
     },
   },
 });
