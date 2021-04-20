@@ -13,6 +13,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  appBar: {
+    backgroundColor: '#ddc9a4',
+    opacity: 0.5,
+    color: theme.palette.common.black,
+  },
   menuButton: {
     marginRight: theme.spacing(2),
   },
@@ -38,7 +43,7 @@ const NavBar = (props) => {
 
   return (
     <div className={classes.root}>
-      <AppBar position='static'>
+      <AppBar position='static' className={classes.appBar} elevation={0}>
         <Toolbar>
           <Typography variant='h6' className={classes.title}>
             Not So Sweet
