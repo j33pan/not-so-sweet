@@ -72,15 +72,31 @@ const NavBar = (props) => {
               open={open}
               onClose={() => setAnchorEl(null)}
             >
-              <MenuItem onClick={() => handleClose('/')}>HOME</MenuItem>
-              <MenuItem onClick={() => handleClose('/receipe')}>
+              <MenuItem dense onClick={() => handleClose('/')}>
+                
+                
+                
+                HOME
+              
+              
+              
+              </MenuItem>
+              <MenuItem dense onClick={() => handleClose('/receipe')}>
                 RECEIPE
               </MenuItem>
-              <MenuItem onClick={() => handleClose('/lesson')}>LESSON</MenuItem>
+              <MenuItem dense onClick={() => handleClose('/lesson')}>
+                
+                
+                
+                LESSON
+              
+              
+              
+              </MenuItem>
               <Divider />
-              <MenuItem>ORDER</MenuItem>
+              <MenuItem dense>ORDER</MenuItem>
               <Divider />
-              <MenuItem>LOG IN</MenuItem>
+              <MenuItem dense>LOG IN</MenuItem>
             </Menu>
           </div>
         </Toolbar>
