@@ -6,6 +6,7 @@ import LessonPage from './pages/LessonPage';
 import CC from './img/cakequiche.jpg';
 
 import {
+  Container,
   createMuiTheme,
   CssBaseline,
   MuiThemeProvider,
@@ -54,11 +55,13 @@ function App() {
       <CssBaseline />
       <BrowserRouter>
         <NavBar />
-        <Switch>
-          <Route component={HomePage} path='/' exact />
-          <Route component={ReceipePage} path='/receipe' />
-          <Route component={LessonPage} path='/lesson' />
-        </Switch>
+        <Container>
+            <Switch>
+              <Route component={HomePage} path='/' exact />
+              <Route component={ReceipePage} path='/receipe' />
+              <Route component={LessonPage} path='/lesson' />
+            </Switch>
+        </Container>
       </BrowserRouter>
     </MuiThemeProvider>
   );;

@@ -42,7 +42,7 @@ const NavBar = (props) => {
 
   return (
     <div className={classes.root}>
-      <AppBar position='static' className={classes.appBar} elevation={0}>
+      <AppBar position='static' className={classes.appBar} elevation={0} mb={4}>
         <Toolbar>
           <Typography variant='h6' className={classes.title}>
             NOT SO SWEET
@@ -62,7 +62,7 @@ const NavBar = (props) => {
               anchorEl={anchorEl}
               anchorOrigin={{
                 vertical: 'top',
-                horizontal: 'left',
+                horizontal: 'center',
               }}
               keepMounted
               transformOrigin={{
@@ -73,25 +73,14 @@ const NavBar = (props) => {
               onClose={() => setAnchorEl(null)}
             >
               <MenuItem dense onClick={() => handleClose('/')}>
-                
-                
-                
                 HOME
-              
-              
-              
               </MenuItem>
               <MenuItem dense onClick={() => handleClose('/receipe')}>
                 RECEIPE
               </MenuItem>
+              <MenuItem dense>NSS RECEIPE</MenuItem>
               <MenuItem dense onClick={() => handleClose('/lesson')}>
-                
-                
-                
                 LESSON
-              
-              
-              
               </MenuItem>
               <Divider />
               <MenuItem dense>ORDER</MenuItem>

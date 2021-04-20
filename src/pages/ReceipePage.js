@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
-import Container from '@material-ui/core/Container';
 import { ListSubheader, makeStyles, TextField, useTheme } from '@material-ui/core';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import axios from 'axios';
@@ -44,7 +43,7 @@ export default function TitlebarGridList() {
   if (useMediaQuery(theme.breakpoints.up('md'))) cols = 4;
 
   return (
-    <Container className={classes.root}>
+    <div className={classes.root}>
       <GridList
         cellHeight={300}
         cols={cols}
@@ -54,7 +53,7 @@ export default function TitlebarGridList() {
         <GridListTile key='Subheader' cols={cols} style={{ height: 'auto' }}>
           <ListSubheader component='div'>
             <TextField
-              label='Search'
+              label='Explore receipes'
               onChange={onChange}
               onKeyDown={(e) => e.key === 'Enter' && getData()}
             />
@@ -67,6 +66,6 @@ export default function TitlebarGridList() {
           </GridListTile>
         ))}
       </GridList>
-    </Container>
+    </div>
   );
 }
