@@ -26,6 +26,11 @@ const theme = createMuiTheme({
         },
       },
     },
+    // MuiButton: {
+    //   label: {
+    //     color: 'floralwhite',
+    //   },
+    // },
   },
   palette: {
     primary: {

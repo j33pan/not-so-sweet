@@ -8,6 +8,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import {withRouter} from 'react-router-dom';
+import { Button, Divider } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -71,11 +72,15 @@ const NavBar = (props) => {
               open={open}
               onClose={() => setAnchorEl(null)}
             >
-              <MenuItem onClick={() => handleClose('/')}>Home</MenuItem>
+              <MenuItem onClick={() => handleClose('/')}>HOME</MenuItem>
               <MenuItem onClick={() => handleClose('/receipe')}>
-                Receipe
+                RECEIPE
               </MenuItem>
-              <MenuItem onClick={() => handleClose('/lesson')}>Lesson</MenuItem>
+              <MenuItem onClick={() => handleClose('/lesson')}>LESSON</MenuItem>
+              <Divider />
+              <MenuItem>ORDER</MenuItem>
+              <Divider />
+              <MenuItem>LOG IN</MenuItem>
             </Menu>
           </div>
         </Toolbar>
