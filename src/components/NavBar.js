@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     backgroundColor: '#ddc9a4',
-    opacity: 0.5,
+    opacity: 0.6,
     color: theme.palette.common.black,
   },
   menuButton: {
@@ -45,7 +45,7 @@ const NavBar = (props) => {
     <div className={classes.root}>
       <AppBar position='static' className={classes.appBar} elevation={0}>
         <Toolbar>
-          <Typography variant='h6' className={classes.title}>
+          <Typography variant='h5' className={classes.title}>
             Not So Sweet
           </Typography>
           <div className='mobile'>
