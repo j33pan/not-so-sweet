@@ -45,7 +45,7 @@ const NavBar = (props) => {
     <div className={classes.root}>
       <AppBar position='static' className={classes.appBar} elevation={0}>
         <Toolbar>
-          <Typography variant='h5' className={classes.title}>
+          <Typography variant='h6' className={classes.title}>
             NOT SO SWEET
           </Typography>
           <div className='mobile'>
