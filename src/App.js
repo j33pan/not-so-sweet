@@ -3,7 +3,7 @@ import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage';
 import ReceipePage from './pages/ReceipePage';
 import LessonPage from './pages/LessonPage';
-import CC from './img/cupcake.jpg';
+import CC from './img/cakequiche.jpg';
 
 import {
   createMuiTheme,
@@ -20,9 +20,25 @@ const theme = createMuiTheme({
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
+          backgroundColor: '#ddc9a4',
+          backgroundAttachment: 'fixed',
           height: '100vh',
         },
       },
+    },
+  },
+  palette:  {
+    primary:  {
+      main: '#a96e44',
+    },
+    background:{
+      paper: 'transparent',
+    },
+    common:{
+      white:'floralwhite'
+    },
+    text:{
+      primary: '#67401a'
     },
   },
 });
