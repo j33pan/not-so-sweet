@@ -8,7 +8,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import {withRouter} from 'react-router-dom';
-import { Button, Divider } from '@material-ui/core';
+import { Box, Divider } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,7 +42,7 @@ const NavBar = (props) => {
 
   return (
     <div className={classes.root}>
-      <AppBar position='static' className={classes.appBar} elevation={0} mb={4}>
+      <AppBar position='fixed' className={classes.appBar} elevation={0}>
         <Toolbar>
           <Typography variant='h6' className={classes.title}>
             NOT SO SWEET
@@ -75,10 +75,8 @@ const NavBar = (props) => {
               <MenuItem dense onClick={() => handleClose('/')}>
                 HOME
               </MenuItem>
-              <MenuItem dense onClick={()  => handleClose('/nssreceipe')}>
-                
+              <MenuItem dense onClick={() => handleClose('/nssreceipe')}>
                 NSS RECEIPE
-              
               </MenuItem>
               <MenuItem dense onClick={() => handleClose('/receipe')}>
                 RECEIPE
@@ -94,6 +92,7 @@ const NavBar = (props) => {
           </div>
         </Toolbar>
       </AppBar>
+      <Box mb={9} />
     </div>
   );
 }
