@@ -22,7 +22,7 @@ const theme = createMuiTheme({
           backgroundPosition: 'bottom',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
-          backgroundColor: '#ddc9a4',
+          backgroundColor: 'rgb(188, 143, 143, 0.7)',
           backgroundAttachment: 'fixed',
           height: '100vh',
         },
