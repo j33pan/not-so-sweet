@@ -11,6 +11,7 @@ import {
   CssBaseline,
   MuiThemeProvider,
 } from '@material-ui/core';
+import NSSReceipe from './components/NSSReceipePage';
 
 const theme = createMuiTheme({
   overrides: {
@@ -56,11 +57,12 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Container>
-            <Switch>
-              <Route component={HomePage} path='/' exact />
-              <Route component={ReceipePage} path='/receipe' />
-              <Route component={LessonPage} path='/lesson' />
-            </Switch>
+          <Switch>
+            <Route component={HomePage} path='/' exact />
+            <Route component={ReceipePage} path='/receipe' />
+            <Route component={LessonPage} path='/lesson' />
+            <Route component={NSSReceipe} path='/nssreceipe' />
+          </Switch>
         </Container>
       </BrowserRouter>
     </MuiThemeProvider>

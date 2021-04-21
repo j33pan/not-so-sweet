@@ -1,27 +1,28 @@
-import UserIcon from 'part:@sanity/base/user-icon'
+import CakeSlice from 'react-icons/gi';
 
 export default {
-  name: 'person',
-  title: 'Person',
+  name: 'nssreceipe',
+  title: 'NSS Receipe',
   type: 'document',
-  icon: UserIcon,
+  icon: CakeSlice,
   fields: [
     {
       name: 'name',
       title: 'Name',
       type: 'string',
-      description: 'Please use "Firstname Lastname" format',
+      description: 'Receipe name:',
     },
     {
       name: 'image',
       title: 'Image',
       type: 'image',
+      description: 'Receipe image:',
       options: {
         hotspot: true,
       },
     },
   ],
-  preview: {
-    select: { title: 'name', media: 'image' },
-  },
+  // preview: {
+  //   select: { title: 'name', media: 'image' },
+  // },
 };

@@ -75,10 +75,14 @@ const NavBar = (props) => {
               <MenuItem dense onClick={() => handleClose('/')}>
                 HOME
               </MenuItem>
+              <MenuItem dense onClick={()  => handleClose('/nssreceipe')}>
+                
+                NSS RECEIPE
+              
+              </MenuItem>
               <MenuItem dense onClick={() => handleClose('/receipe')}>
                 RECEIPE
               </MenuItem>
-              <MenuItem dense>NSS RECEIPE</MenuItem>
               <MenuItem dense onClick={() => handleClose('/lesson')}>
                 LESSON
               </MenuItem>
