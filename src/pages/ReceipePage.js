@@ -69,7 +69,7 @@ export default function TitlebarGridList() {
         spacing={7}
         className={classes.gridList}
       >
-        <GridListTile key='Subheader' cols={cols} style={{ height: 'auto' }} >
+        <GridListTile key='Subheader' cols={cols} style={{ height: 'auto' }}>
           <ListSubheader component='div'>
             <TextField
               label='Explore receipes'
@@ -77,9 +77,13 @@ export default function TitlebarGridList() {
               onKeyDown={(e) => e.key === 'Enter' && getData()}
             />
           </ListSubheader>
-        </GridListTile >
+        </GridListTile>
         {receipes.map((receipe) => (
-          <GridListTile onClick={()=>handleClickOpen(receipe.recipe.ingredientLines)} key={uuidv4()} cols={1}>
+          <GridListTile
+            onClick={() => handleClickOpen(receipe.recipe.ingredientLines)}
+            key={uuidv4()}
+            cols={1}
+          >
             <img src={receipe.recipe.image} alt={receipe.recipe.label} />
             <GridListTileBar title={receipe.recipe.label} />
           </GridListTile>

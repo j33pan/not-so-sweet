@@ -8,14 +8,11 @@ import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import {withRouter} from 'react-router-dom';
-import { Box, Divider } from '@material-ui/core';
+import { Divider } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-  },
-  appBar: {
-    opacity: 0.7,
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -23,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  menuItem: {
+    color: theme.palette.common.white
+  }
 }));
 
 const NavBar = (props) => {
@@ -42,7 +42,7 @@ const NavBar = (props) => {
 
   return (
     <div className={classes.root}>
-      <AppBar position='fixed' className={classes.appBar} elevation={0}>
+      <AppBar position='fixed' elevation={0}>
         <Toolbar>
           <Typography variant='h6' className={classes.title}>
             NOT SO SWEET
@@ -57,7 +57,7 @@ const NavBar = (props) => {
             >
               <MenuIcon />
             </IconButton>
-            <Menu
+            <Menu 
               id='menu-appbar'
               anchorEl={anchorEl}
               anchorOrigin={{
@@ -72,27 +72,27 @@ const NavBar = (props) => {
               open={open}
               onClose={() => setAnchorEl(null)}
             >
-              <MenuItem dense onClick={() => handleClose('/')}>
+              <MenuItem className={classes.menuItem} dense onClick={() => handleClose('/')}>
                 HOME
               </MenuItem>
-              <MenuItem dense onClick={() => handleClose('/nssreceipe')}>
+              <MenuItem className={classes.menuItem} dense onClick={() => handleClose('/nssreceipe')}>
                 NSS RECEIPE
               </MenuItem>
-              <MenuItem dense onClick={() => handleClose('/receipe')}>
+              <MenuItem className={classes.menuItem} dense onClick={() => handleClose('/receipe')}>
                 RECEIPE
               </MenuItem>
-              <MenuItem dense onClick={() => handleClose('/lesson')}>
+              <MenuItem className={classes.menuItem} dense onClick={() => handleClose('/lesson')}>
                 LESSON
               </MenuItem>
               <Divider />
-              <MenuItem dense>ORDER</MenuItem>
+              <MenuItem className={classes.menuItem} dense>ORDER</MenuItem>
               <Divider />
-              <MenuItem dense>LOG IN</MenuItem>
+              <MenuItem className={classes.menuItem} dense>LOG IN</MenuItem>
             </Menu>
           </div>
         </Toolbar>
       </AppBar>
-      <Box mb={9} />
+      <Toolbar style={{ marginBottom: '20px' }} />
     </div>
   );
 }

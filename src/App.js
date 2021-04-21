@@ -4,7 +4,7 @@ import HomePage from './pages/HomePage';
 import ReceipePage from './pages/ReceipePage';
 import LessonPage from './pages/LessonPage';
 import NSSReceipe from './pages/NSSReceipePage';
-import CC from './img/cakequiche.jpg';
+import CC from './img/egg.jpg';
 
 import {
   Container,
@@ -19,7 +19,7 @@ const theme = createMuiTheme({
       '@global': {
         body: {
           backgroundImage: `url(${CC})`,
-          backgroundPosition: 'center',
+          backgroundPosition: 'bottom',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundColor: '#ddc9a4',
@@ -36,16 +36,17 @@ const theme = createMuiTheme({
   },
   palette: {
     primary: {
-      main: '#a96e44',
+      main: 'rgb(188, 143, 143, 0.7)',
+      contrastText: 'floralwhite',
     },
     background: {
-      paper: 'rgba(255,255,255,0.3)',
+      paper: 'rgb(188, 143, 143, 0.8)',
     },
     common: {
       white: 'floralwhite',
     },
     text: {
-      primary: '#2d1606',
+      primary: '#704343',
     },
   },
 });
