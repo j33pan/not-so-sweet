@@ -2,10 +2,16 @@ import React, { useState } from 'react';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
-import { ListSubheader, makeStyles, TextField, useTheme } from '@material-ui/core';
+import {
+  ListSubheader,
+  makeStyles,
+  TextField,
+  useTheme,
+} from '@material-ui/core';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
+import ReceipeDialog from '../components/ReceipeDialog';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,15 +48,28 @@ export default function TitlebarGridList() {
   if (useMediaQuery(theme.breakpoints.up('sm'))) cols = 2;
   if (useMediaQuery(theme.breakpoints.up('md'))) cols = 4;
 
+  const [open, setOpen] = React.useState(false);
+  const [receipedata, setReceipedata] = React.useState(null);
+
+  const handleClickOpen = (currReceipedata) => {
+    setOpen(true);
+    setReceipedata(currReceipedata);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div className={classes.root}>
+      <ReceipeDialog open={open} onClose={handleClose} receipe={receipedata} />
       <GridList
         cellHeight={300}
         cols={cols}
         spacing={7}
         className={classes.gridList}
       >
-        <GridListTile key='Subheader' cols={cols} style={{ height: 'auto' }}>
+        <GridListTile key='Subheader' cols={cols} style={{ height: 'auto' }} >
           <ListSubheader component='div'>
             <TextField
               label='Explore receipes'
@@ -58,9 +77,9 @@ export default function TitlebarGridList() {
               onKeyDown={(e) => e.key === 'Enter' && getData()}
             />
           </ListSubheader>
-        </GridListTile>
+        </GridListTile >
         {receipes.map((receipe) => (
-          <GridListTile key={uuidv4()} cols={1}>
+          <GridListTile onClick={()=>handleClickOpen(receipe.recipe.ingredientLines)} key={uuidv4()} cols={1}>
             <img src={receipe.recipe.image} alt={receipe.recipe.label} />
             <GridListTileBar title={receipe.recipe.label} />
           </GridListTile>
