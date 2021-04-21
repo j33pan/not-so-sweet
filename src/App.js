@@ -3,6 +3,7 @@ import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage';
 import ReceipePage from './pages/ReceipePage';
 import LessonPage from './pages/LessonPage';
+import NSSReceipe from './pages/NSSReceipePage';
 import CC from './img/cakequiche.jpg';
 
 import {
@@ -11,7 +12,6 @@ import {
   CssBaseline,
   MuiThemeProvider,
 } from '@material-ui/core';
-import NSSReceipe from './components/NSSReceipePage';
 
 const theme = createMuiTheme({
   overrides: {

@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
   },
   gridList: {
     width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: '50%',
+    },
   },
 }));
 
