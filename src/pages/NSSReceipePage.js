@@ -3,6 +3,8 @@ import {
   GridListTile,
   GridListTileBar,
   makeStyles,
+  useMediaQuery,
+  useTheme,
 } from '@material-ui/core';
 import React from 'react';
 import sClient from '../Sclient.js';
@@ -42,10 +44,11 @@ const NSSReceipePge = () => {
   console.log(receipes);
 
   const classes = useStyles();
+  const theme = useTheme();
   return (
     <div className={classes.root}>
       <GridList
-        cellHeight={300}
+        cellHeight={useMediaQuery(theme.breakpoints.up('lg')) ? 450 : 300}
         cols={1}
         spacing={7}
         className={classes.gridList}
