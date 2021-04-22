@@ -57,7 +57,7 @@ const NavBar = (props) => {
             >
               <MenuIcon />
             </IconButton>
-            <Menu 
+            <Menu
               id='menu-appbar'
               anchorEl={anchorEl}
               anchorOrigin={{
@@ -72,22 +72,42 @@ const NavBar = (props) => {
               open={open}
               onClose={() => setAnchorEl(null)}
             >
-              <MenuItem className={classes.menuItem} dense onClick={() => handleClose('/')}>
+              <MenuItem
+                className={classes.menuItem}
+                dense
+                onClick={() => handleClose('/')}
+              >
                 HOME
               </MenuItem>
-              <MenuItem className={classes.menuItem} dense onClick={() => handleClose('/nssreceipe')}>
+              <MenuItem
+                className={classes.menuItem}
+                dense
+                onClick={() => handleClose('/nssreceipe')}
+              >
                 NSS RECEIPE
               </MenuItem>
-              <MenuItem className={classes.menuItem} dense onClick={() => handleClose('/receipe')}>
+              <MenuItem
+                className={classes.menuItem}
+                dense
+                onClick={() => handleClose('/outsourcereceipe')}
+              >
                 RECEIPE
               </MenuItem>
-              <MenuItem className={classes.menuItem} dense onClick={() => handleClose('/lesson')}>
+              <MenuItem
+                className={classes.menuItem}
+                dense
+                onClick={() => handleClose('/lesson')}
+              >
                 LESSON
               </MenuItem>
               <Divider />
-              <MenuItem className={classes.menuItem} dense>ORDER</MenuItem>
+              <MenuItem className={classes.menuItem} dense>
+                ORDER
+              </MenuItem>
               <Divider />
-              <MenuItem className={classes.menuItem} dense>LOG IN</MenuItem>
+              <MenuItem className={classes.menuItem} dense>
+                LOG IN
+              </MenuItem>
             </Menu>
           </div>
         </Toolbar>

@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage';
-import ReceipePage from './pages/ReceipePage';
 import LessonPage from './pages/LessonPage';
 import NSSReceipe from './pages/NSSReceipePage';
 import CC from './img/egg.jpg';
@@ -12,6 +11,7 @@ import {
   CssBaseline,
   MuiThemeProvider,
 } from '@material-ui/core';
+import OutsourceReceipePage from './pages/OutsourceReceipePage';
 
 const theme = createMuiTheme({
   overrides: {
@@ -40,13 +40,13 @@ const theme = createMuiTheme({
       contrastText: 'floralwhite',
     },
     background: {
-      paper: 'rgb(188, 143, 143, 0.8)',
+      paper: 'rgb(188, 143, 143, 0.3)',
     },
     common: {
       white: 'floralwhite',
     },
     text: {
-      primary: '#704343',
+      primary: '#603939',
     },
   },
 });
@@ -60,7 +60,7 @@ function App() {
         <Container>
           <Switch>
             <Route component={HomePage} path='/' exact />
-            <Route component={ReceipePage} path='/receipe' />
+            <Route component={OutsourceReceipePage} path='/outsourcereceipe' />
             <Route component={LessonPage} path='/lesson' />
             <Route component={NSSReceipe} path='/nssreceipe' />
           </Switch>
