@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import uuid from 'react-uuid';
 import {
-  Button,
   GridList,
   GridListTile,
   GridListTileBar,
@@ -11,26 +10,27 @@ import {
   useTheme,
 } from '@material-ui/core';
 import axios from 'axios';
+
 const OutsourceReceipePage = () => {
+  const [query, setQuery] = useState('chiffon');
   const APP_ID = '91c5bf0e';
   const APP_KEY = '92ad0d234662a6c6f9b2bdc527df3ecc';
   const options = {
     method: 'GET',
     url: 'https://api.edamam.com/search',
     params: {
-      q: 'cake',
-      dishType: 'dessert',
-      to: 100,
+      q: query,
+      to: 20,
       app_id: APP_ID,
       app_key: APP_KEY,
     },
   };
   const [receipes, setReceipes] = React.useState([]);
+  const getData = async () => {
+    const response = await axios.request(options);
+    setReceipes(response.data.hits);
+  };
   React.useEffect(() => {
-    const getData = async () => {
-      const response = await axios.request(options);
-      setReceipes(response.data.hits);
-    };
     getData();
   }, []);
 
@@ -53,8 +53,13 @@ const OutsourceReceipePage = () => {
         spacing={10}
         style={{ padding: 20 }}
       >
-        <GridListTile cols={cols} style={{ height: 60 }}>
-          <TextField label='Explore receipes' />
+        <GridListTile key='Subheader' cols={cols} style={{ height: 'auto' }}>
+            <TextField
+              label='Explore receipes'
+              onChange={(e)  =>  setQuery(e.target.value)}
+              onKeyDown={(e) => e.key==='Enter' && getData()}
+              style={{width:'100%'}}
+            />
         </GridListTile>
         {receipes.map((x) => (
           <GridListTile key={uuid()}>
