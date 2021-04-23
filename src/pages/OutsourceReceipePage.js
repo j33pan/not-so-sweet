@@ -4,12 +4,12 @@ import {
   GridList,
   GridListTile,
   GridListTileBar,
-  ListSubheader,
   TextField,
   useMediaQuery,
   useTheme,
 } from '@material-ui/core';
 import axios from 'axios';
+import OSReceipeDialog from '../components/OSReceipeDialog';
 
 const OutsourceReceipePage = () => {
   const [query, setQuery] = useState('chiffon');
@@ -20,7 +20,8 @@ const OutsourceReceipePage = () => {
     url: 'https://api.edamam.com/search',
     params: {
       q: query,
-      to: 20,
+      from: 5,
+      to: 25,
       app_id: APP_ID,
       app_key: APP_KEY,
     },
@@ -30,9 +31,24 @@ const OutsourceReceipePage = () => {
     const response = await axios.request(options);
     setReceipes(response.data.hits);
   };
+
+  // const [ingredients, setIngredients] = React.useState([]);
+  const [curr, setCurr] = React.useState({});
   React.useEffect(() => {
     getData();
   }, []);
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = (x) => {
+    // setIngredients(x.recipe.ingredientLines);
+    setCurr(x);
+    setOpen(true);
+    // console.log(x)
+  };
+  const handleClose = () => {
+    setOpen(false);
+    // setIngredients([]);
+  };
 
   const theme = useTheme();
   let cols = 1;
@@ -47,6 +63,11 @@ const OutsourceReceipePage = () => {
         overflow: 'hidden',
       }}
     >
+      <OSReceipeDialog
+        open={open}
+        onClose={handleClose}
+        data={curr}
+      />
       <GridList
         cols={cols}
         cellHeight={240}
@@ -54,15 +75,18 @@ const OutsourceReceipePage = () => {
         style={{ padding: 20 }}
       >
         <GridListTile key='Subheader' cols={cols} style={{ height: 'auto' }}>
-            <TextField
-              label='Explore receipes'
-              onChange={(e)  =>  setQuery(e.target.value)}
-              onKeyDown={(e) => e.key==='Enter' && getData()}
-              style={{width:'100%'}}
-            />
+          <TextField
+            label='Explore receipes'
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && getData()}
+            style={{ width: '100%' }}
+          />
         </GridListTile>
         {receipes.map((x) => (
-          <GridListTile key={uuid()}>
+          <GridListTile
+            onClick={() => handleClick(x)}
+            key={uuid()}
+          >
             <img src={x.recipe.image} alt='logo' />
             <GridListTileBar
               title={x.recipe.label}
