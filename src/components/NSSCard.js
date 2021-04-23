@@ -6,58 +6,59 @@ import {
   CardMedia,
   IconButton,
   Typography,
+  Button,
 } from '@material-ui/core';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import React from 'react';
 
 const NSSCard = (props) => {
-  console.log(props);
   const {
     data: {
       name,
       image: {
         asset: { url },
       },
+      desc,
     },
   } = props;
-  console.log(name);
-  console.log(url);
 
   return (
-    <Card>
-      <CardActionArea>
+    <Card >
+      <CardActionArea style={{padding:12}}>
         <CardMedia
           style={{
-            width: '90%',
+            width: '100%',
             height: 200,
-            margin: 20,
-            marginBottom: 0,
             display: 'block',
           }}
           image={url}
         />
-        <CardContent style={{ padding: 10, paddingBottom: 0 }}>
+        <CardContent style={{ 
+          padding: 0, 
+          }}>
           <Typography variant='h5'>{name}</Typography>
           <Typography
-            noWrap
+            // noWrap
             variant='body2'
             color='textSecondary'
             component='p'
           >
-            This impressive paella is a perfect party dish and a fun meal to
-            cook together with your guests. Add 1 cup of frozen peas along with
-            the mussels, if you like.
+            {desc}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions disableSpacing style={{ padding: 0 }}>
+      <CardActions disableSpacing style={{ 
+        padding: 0,
+        paddingRight:12 
+        }}>
         <IconButton>
           <FavoriteIcon />
         </IconButton>
         <IconButton>
           <ShareIcon />
         </IconButton>
+        <Button variant="contained" size='small' color='primary' style={{marginLeft:'auto'}}>Details</Button>
       </CardActions>
     </Card>
   );

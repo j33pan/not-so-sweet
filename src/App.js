@@ -19,7 +19,7 @@ const theme = createMuiTheme({
       '@global': {
         body: {
           backgroundImage: `url(${CC})`,
-          backgroundPosition: 'bottom',
+          backgroundPosition: 'left',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundColor: 'rgb(188, 143, 143, 0.7)',

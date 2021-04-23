@@ -28,14 +28,15 @@ const NSSReceipePge = () => {
         url
       },
       alt
-    }}`;
+    },
+    desc
+  }`;
   React.useEffect(() => {
     sClient
       .fetch(query)
       .then((cakes) => setReceipes(cakes))
       .catch(console.error);
   }, []);
-  console.log(receipes);
 
   const classes = useStyles();
   const theme = useTheme();
