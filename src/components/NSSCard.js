@@ -21,22 +21,25 @@ const NSSCard = (props) => {
       },
       desc,
     },
+    imgHeight,
   } = props;
 
   return (
-    <Card >
-      <CardActionArea style={{padding:12}}>
+    <Card>
+      <CardActionArea style={{ padding: 12 }}>
         <CardMedia
           style={{
             width: '100%',
-            height: 200,
+            height: imgHeight,
             display: 'block',
           }}
           image={url}
         />
-        <CardContent style={{ 
-          padding: 0, 
-          }}>
+        <CardContent
+          style={{
+            padding: 0,
+          }}
+        >
           <Typography variant='h5'>{name}</Typography>
           <Typography
             // noWrap
@@ -48,17 +51,27 @@ const NSSCard = (props) => {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions disableSpacing style={{ 
-        padding: 0,
-        paddingRight:12 
-        }}>
+      <CardActions
+        disableSpacing
+        style={{
+          padding: 0,
+          paddingRight: 12,
+        }}
+      >
         <IconButton>
           <FavoriteIcon />
         </IconButton>
         <IconButton>
           <ShareIcon />
         </IconButton>
-        <Button variant="contained" size='small' color='primary' style={{marginLeft:'auto'}}>Details</Button>
+        <Button
+          variant='contained'
+          size='small'
+          color='primary'
+          style={{ marginLeft: 'auto' }}
+        >
+          Details
+        </Button>
       </CardActions>
     </Card>
   );

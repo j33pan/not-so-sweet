@@ -40,17 +40,26 @@ const NSSReceipePge = () => {
 
   const classes = useStyles();
   const theme = useTheme();
+  let imgHeight = 200;
+  let gridWidth = '90%';
+  if (useMediaQuery(theme.breakpoints.up('md'))) {
+    gridWidth = '60%';
+    imgHeight = 350;
+  }
+  if (useMediaQuery(theme.breakpoints.up('lg'))) {
+    imgHeight = 400;
+  }
   return (
     <div className={classes.root}>
-      <Grid container spacing={2} style={{  width: '90%'  }}>
-        {receipes.map((x)  => ( (
+      <Grid container spacing={2} style={{ width: gridWidth }}>
+        {receipes.map((x) => (
           <Grid item xs={12} key={uuid()}>
-            <NSSCard data={x} />
+            <NSSCard data={x} imgHeight={imgHeight} />
           </Grid>
-        )))}
+        ))}
       </Grid>
     </div>
   );
-};
+};;
 
 export default NSSReceipePge;
