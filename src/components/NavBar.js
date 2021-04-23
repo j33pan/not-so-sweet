@@ -44,7 +44,11 @@ const NavBar = (props) => {
     <div className={classes.root}>
       <AppBar position='fixed' elevation={0}>
         <Toolbar>
-          <Typography variant='h6' className={classes.title}>
+          <Typography
+            onClick={() => handleClose('/')}
+            variant='h6'
+            className={classes.title}
+          >
             NOT SO SWEET
           </Typography>
           <div className='mobile'>
@@ -75,13 +79,6 @@ const NavBar = (props) => {
               <MenuItem
                 className={classes.menuItem}
                 dense
-                onClick={() => handleClose('/')}
-              >
-                HOME
-              </MenuItem>
-              <MenuItem
-                className={classes.menuItem}
-                dense
                 onClick={() => handleClose('/nssreceipe')}
               >
                 NSS RECEIPE
@@ -93,6 +90,7 @@ const NavBar = (props) => {
               >
                 RECEIPE
               </MenuItem>
+              <Divider />
               <MenuItem
                 className={classes.menuItem}
                 dense
