@@ -52,7 +52,8 @@ const OutsourceReceipePage = () => {
 
   const theme = useTheme();
   let cols = 1;
-  if (useMediaQuery(theme.breakpoints.up('sm'))) cols = 3;
+  if (useMediaQuery(theme.breakpoints.up('sm'))) cols = 2;
+  if (useMediaQuery(theme.breakpoints.up('md'))) cols = 3;
   if (useMediaQuery(theme.breakpoints.up('lg'))) cols = 4;
   return (
     <div
@@ -63,15 +64,11 @@ const OutsourceReceipePage = () => {
         overflow: 'hidden',
       }}
     >
-      <OSReceipeDialog
-        open={open}
-        onClose={handleClose}
-        data={curr}
-      />
+      <OSReceipeDialog open={open} onClose={handleClose} data={curr} />
       <GridList
         cols={cols}
-        cellHeight={240}
-        spacing={10}
+        cellHeight={250}
+        spacing={15}
         style={{ padding: 20 }}
       >
         <GridListTile key='Subheader' cols={cols} style={{ height: 'auto' }}>
@@ -83,10 +80,7 @@ const OutsourceReceipePage = () => {
           />
         </GridListTile>
         {receipes.map((x) => (
-          <GridListTile
-            onClick={() => handleClick(x)}
-            key={uuid()}
-          >
+          <GridListTile onClick={() => handleClick(x)} key={uuid()}>
             <img src={x.recipe.image} alt='logo' />
             <GridListTileBar
               title={x.recipe.label}

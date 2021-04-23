@@ -1,14 +1,8 @@
-import {
-  GridList,
-  GridListTile,
-  GridListTileBar,
-  makeStyles,
-  useMediaQuery,
-  useTheme,
-} from '@material-ui/core';
+import { Grid, makeStyles, useMediaQuery, useTheme } from '@material-ui/core';
 import React from 'react';
 import sClient from '../Sclient.js';
-
+import NSSCard from '../components/NSSCard.js';
+import uuid from 'react-uuid'
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -47,19 +41,13 @@ const NSSReceipePge = () => {
   const theme = useTheme();
   return (
     <div className={classes.root}>
-      <GridList
-        cellHeight={useMediaQuery(theme.breakpoints.up('lg')) ? 450 : 300}
-        cols={1}
-        spacing={7}
-        className={classes.gridList}
-      >
-        {receipes.map((receipe) => (
-          <GridListTile cols={1}>
-            <img src={receipe.image.asset.url} alt={receipe.name} />
-            <GridListTileBar title={receipe.name} />
-          </GridListTile>
-        ))}
-      </GridList>
+      <Grid container spacing={2} style={{  width: '90%'  }}>
+        {receipes.map((x)  => ( (
+          <Grid item xs={12} key={uuid()}>
+            <NSSCard data={x} />
+          </Grid>
+        )))}
+      </Grid>
     </div>
   );
 };
