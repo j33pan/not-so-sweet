@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/not-so-sweet/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/not-so-sweet/static/js/main.eae1b07f.chunk.js",
-    "main.js.map": "/not-so-sweet/static/js/main.eae1b07f.chunk.js.map",
+    "main.js": "/not-so-sweet/static/js/main.f6fa6b06.chunk.js",
+    "main.js.map": "/not-so-sweet/static/js/main.f6fa6b06.chunk.js.map",
     "runtime-main.js": "/not-so-sweet/static/js/runtime-main.7948fc68.js",
     "runtime-main.js.map": "/not-so-sweet/static/js/runtime-main.7948fc68.js.map",
-    "static/js/2.b12ed391.chunk.js": "/not-so-sweet/static/js/2.b12ed391.chunk.js",
-    "static/js/2.b12ed391.chunk.js.map": "/not-so-sweet/static/js/2.b12ed391.chunk.js.map",
+    "static/js/2.3654a998.chunk.js": "/not-so-sweet/static/js/2.3654a998.chunk.js",
+    "static/js/2.3654a998.chunk.js.map": "/not-so-sweet/static/js/2.3654a998.chunk.js.map",
     "index.html": "/not-so-sweet/index.html",
     "static/css/main.6dea0f05.chunk.css.map": "/not-so-sweet/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.b12ed391.chunk.js.LICENSE.txt": "/not-so-sweet/static/js/2.b12ed391.chunk.js.LICENSE.txt",
+    "static/js/2.3654a998.chunk.js.LICENSE.txt": "/not-so-sweet/static/js/2.3654a998.chunk.js.LICENSE.txt",
     "static/media/egg.1ed17743.jpg": "/not-so-sweet/static/media/egg.1ed17743.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.7948fc68.js",
-    "static/js/2.b12ed391.chunk.js",
+    "static/js/2.3654a998.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.eae1b07f.chunk.js"
+    "static/js/main.f6fa6b06.chunk.js"
   ]
 }
