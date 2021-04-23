@@ -5,12 +5,9 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
-  Divider,
-  Typography,
   useTheme,
 } from '@material-ui/core';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import uuid from 'react-uuid';
 
 const OSReceipeDialog = (props) => {
@@ -36,21 +33,15 @@ const OSReceipeDialog = (props) => {
         <DialogTitle>Ingredients</DialogTitle>
         <DialogContent dividers>
           <DialogContentText style={{ margin: 0 }}>
-            <Typography variant='substitle2'>
               yields {data.recipe?.yield}
-            </Typography>
           </DialogContentText>
-          {/* <Divider style={{ marginBottom: 5 }} /> */}
           {ingredientLines?.map((x) => (
             <DialogContentText style={{ margin: 0 }} key={uuid()}>
-              <Typography variant='body2'>{x}</Typography>
+              {x}
             </DialogContentText>
           ))}
-          <Link href={url}>Full details at {source}</Link>
-          {/* <Divider style={{ marginTop: 5, marginBottom: 5 }} /> */}
-          {/* <DialogContentText>
-            <Link href='#'>Full details</Link>
-          </DialogContentText> */}
+          <br />
+          <a target="_blank" href={url} rel="noopener noreferrer" style={{color: theme.palette.text.primary}}>Full details at {source}</a>
         </DialogContent>
         <DialogActions>
           <Button size='small' onClick={handleClose}>
