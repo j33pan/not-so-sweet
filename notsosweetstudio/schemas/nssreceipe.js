@@ -21,6 +21,12 @@ export default {
         hotspot: true,
       },
     },
+    {
+      name: 'desc',
+      title: 'Description',
+      type: 'string',
+      description: 'Receipe description:',
+    },
   ],
   // preview: {
   //   select: { title: 'name', media: 'image' },
