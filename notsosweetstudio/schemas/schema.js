@@ -2,11 +2,15 @@
 import createSchema from 'part:@sanity/base/schema-creator'
 // Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type'
-
+import unit from './simpledocs/unit';
+import amount from './objects/amount';
 // We import object and document schemas
 import person from './person';
 import nssreceipe from './nssreceipe';
-
+import cakereceipe from './cakereceipe';
+import frostingreceipe from './frostingreceipe';
+import line from './objects/line';
+import food from './simpledocs/food';
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -17,7 +21,13 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     nssreceipe,
-    person,
+    // person,
+    unit,
+    amount,
+    cakereceipe,
+    frostingreceipe,
+    line,
+    food,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ]),
