@@ -24,31 +24,22 @@ const NSSReceipePge = () => {
   const query = `*[_type == 'complexcake'] {
     _id,
     name, 
-    image {
-      asset-> {
-        _id,
-        url
-      },
-      alt
-    },
+    image {asset->{url}},
     desc,
-    cakereceipe->,
-    "frosting": frostingreceipe->{name, line[]{amount{value, unit->{name}}, food->{name}}}
   }`;
   React.useEffect(() => {
     sClient
       .fetch(query)
       .then((cakes) => {
         setReceipes(cakes);
-        console.log(cakes);
+        // console.log(cakes);
       })
       .catch(console.error);
   }, []);
 
   const history = useHistory();
   const handleRouteChange = (data) => {
-    localStorage.setItem('NSSDETAIL', data);
-    console.log(data);
+    localStorage.setItem('NSSID', data._id);
     history.push('/nssdetail');
   };
 
