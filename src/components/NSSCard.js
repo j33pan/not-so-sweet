@@ -22,6 +22,7 @@ const NSSCard = (props) => {
       desc,
     },
     imgHeight,
+    go2detail,
   } = props;
 
   return (
@@ -65,6 +66,7 @@ const NSSCard = (props) => {
           <ShareIcon />
         </IconButton>
         <Button
+          onClick={go2detail}
           variant='contained'
           size='small'
           color='primary'

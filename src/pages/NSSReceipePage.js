@@ -3,6 +3,7 @@ import React from 'react';
 import sClient from '../Sclient.js';
 import NSSCard from '../components/NSSCard.js';
 import uuid from 'react-uuid'
+import { useHistory } from 'react-router';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -20,7 +21,8 @@ const useStyles = makeStyles((theme) => ({
 
 const NSSReceipePge = () => {
   const [receipes, setReceipes] = React.useState([]);
-  const query = `*[_type == "nssreceipe"] {
+  const query = `*[_type == 'complexcake'] {
+    _id,
     name, 
     image {
       asset-> {
@@ -29,14 +31,26 @@ const NSSReceipePge = () => {
       },
       alt
     },
-    desc
+    desc,
+    cakereceipe->,
+    "frosting": frostingreceipe->{name, line[]{amount{value, unit->{name}}, food->{name}}}
   }`;
   React.useEffect(() => {
     sClient
       .fetch(query)
-      .then((cakes) => setReceipes(cakes))
+      .then((cakes) => {
+        setReceipes(cakes);
+        console.log(cakes);
+      })
       .catch(console.error);
   }, []);
+
+  const history = useHistory();
+  const handleRouteChange = (data) => {
+    localStorage.setItem('NSSDETAIL', data);
+    console.log(data);
+    history.push('/nssdetail');
+  };
 
   const classes = useStyles();
   const theme = useTheme();
@@ -57,7 +71,11 @@ const NSSReceipePge = () => {
       <Grid container spacing={2} style={{ width: gridWidth }}>
         {receipes.map((x) => (
           <Grid item xs={12} key={uuid()}>
-            <NSSCard data={x} imgHeight={imgHeight} />
+            <NSSCard
+              data={x}
+              imgHeight={imgHeight}
+              go2detail={() => handleRouteChange(x)}
+            />
           </Grid>
         ))}
       </Grid>

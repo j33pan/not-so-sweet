@@ -11,6 +11,7 @@ import cakereceipe from './cakereceipe';
 import frostingreceipe from './frostingreceipe';
 import line from './objects/line';
 import food from './simpledocs/food';
+import complexcake from './complexcake';
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -28,6 +29,7 @@ export default createSchema({
     frostingreceipe,
     line,
     food,
+    complexcake,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ]),
