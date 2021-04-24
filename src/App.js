@@ -42,6 +42,7 @@ const theme = createMuiTheme({
     },
     background: {
       paper: 'rgb(188, 143, 143, 0.3)',
+      default: 'rgb(255,250,240,0.8)',
     },
     common: {
       white: 'floralwhite',

@@ -72,7 +72,7 @@ const NSSCard = (props) => {
           color='primary'
           style={{ marginLeft: 'auto' }}
         >
-          Details
+          View
         </Button>
       </CardActions>
     </Card>

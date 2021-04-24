@@ -49,13 +49,13 @@ const NSSReceipePge = () => {
   let gridWidth = '90%';
   if (useMediaQuery(theme.breakpoints.up('sm'))) {
     gridWidth = '50%';
-    imgHeight = 300;
+    imgHeight = 250;
   }
   if (useMediaQuery(theme.breakpoints.up('lg'))) {
-    imgHeight = 400;
+    imgHeight = 300;
   }
   if (useMediaQuery(theme.breakpoints.up('xl'))) {
-    imgHeight = 500;
+    imgHeight = 350;
   }
   return (
     <div className={classes.root}>
