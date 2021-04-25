@@ -46,20 +46,26 @@ const NSSReceipePge = () => {
   const classes = useStyles();
   const theme = useTheme();
   let imgHeight = 200;
-  let gridWidth = '90%';
-  if (useMediaQuery(theme.breakpoints.up('sm'))) {
-    gridWidth = '50%';
+  let gridWidth = '97%';
+  if (useMediaQuery(theme.breakpoints.up('xs'))) {
     imgHeight = 250;
   }
-  if (useMediaQuery(theme.breakpoints.up('lg'))) {
+  if (useMediaQuery(theme.breakpoints.up('sm'))) {
+    gridWidth = '68%';
+  }
+  if (useMediaQuery(theme.breakpoints.up('md'))) {
     imgHeight = 300;
+    gridWidth = '58%';
+  }
+  if (useMediaQuery(theme.breakpoints.up('lg'))) {
+    imgHeight = 350;
   }
   if (useMediaQuery(theme.breakpoints.up('xl'))) {
-    imgHeight = 350;
+    imgHeight = 400;
   }
   return (
     <div className={classes.root}>
-      <Grid container spacing={2} style={{ width: gridWidth }}>
+      <Grid container spacing={2} style={{ width: gridWidth, padding: 10 }}>
         {receipes.map((x) => (
           <Grid item xs={12} key={uuid()}>
             <NSSCard
