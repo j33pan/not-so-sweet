@@ -11,13 +11,13 @@ import {
   Toolbar,
   Typography,
 } from '@material-ui/core';
+import { ContactSupportOutlined } from '@material-ui/icons';
 import React from 'react';
 import uuid from 'react-uuid';
 
 const IngTable = (props) => {
   const { data: { name, line } = {} } = props || {};
   //   console.log(line);
-  const num = 1;
 
   return (
     <TableContainer component={Paper}>
@@ -35,8 +35,8 @@ const IngTable = (props) => {
             </TableRow>
           ))}
           <TableRow>
-            <TableCell>yeilds:</TableCell>
-            <TableCell align='right'><TextField type='number' value={num} style={{width:30}} /> <Select value={6}><MenuItem value={6}>6''</MenuItem><MenuItem>7''</MenuItem><MenuItem>8''</MenuItem></Select> Cake</TableCell>
+            <TableCell>Yeilds:</TableCell>
+            <TableCell align='right'></TableCell>
           </TableRow>
         </TableBody>
       </Table>
