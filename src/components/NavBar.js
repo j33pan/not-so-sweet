@@ -46,7 +46,7 @@ const NavBar = (props) => {
         <Toolbar>
           <Typography
             onClick={() => handleClose('/')}
-            variant='h6'
+            variant='h5'
             className={classes.title}
           >
             NOT SO SWEET

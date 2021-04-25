@@ -51,6 +51,13 @@ const theme = createMuiTheme({
       primary: '#603939',
     },
   },
+  typography: {
+    fontFamily: [
+      'Kanit',
+      'Varela Round',
+      'cursive',
+    ].join(','),
+  },
 });
 
 function App() {

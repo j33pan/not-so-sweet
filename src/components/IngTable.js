@@ -1,7 +1,7 @@
 import {
-    MenuItem,
+  MenuItem,
   Paper,
-    Select,
+  Select,
   Table,
   TableBody,
   TableCell,
@@ -11,7 +11,6 @@ import {
   Toolbar,
   Typography,
 } from '@material-ui/core';
-import { ContactSupportOutlined } from '@material-ui/icons';
 import React from 'react';
 import uuid from 'react-uuid';
 
@@ -21,7 +20,7 @@ const IngTable = (props) => {
 
   return (
     <TableContainer component={Paper}>
-      <Toolbar>
+      <Toolbar variant='dense'>
         <Typography style={{ fontWeight: 600 }}>{name}</Typography>
       </Toolbar>
       <Table size='small'>
