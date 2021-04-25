@@ -16,8 +16,8 @@ import React from 'react';
 import uuid from 'react-uuid';
 
 const IngTable = (props) => {
-  const { data: { name, line } = {} } = props || {};
-  //   console.log(line);
+  const { data: { name, line, makesnum, makessize } = {} } = props || {};
+  // console.log(props);
 
   return (
     <TableContainer component={Paper}>
@@ -36,7 +36,9 @@ const IngTable = (props) => {
           ))}
           <TableRow>
             <TableCell>Yeilds:</TableCell>
-            <TableCell align='right'></TableCell>
+            <TableCell align='right'>
+              {makesnum} {makessize}'' cake
+            </TableCell>
           </TableRow>
         </TableBody>
       </Table>

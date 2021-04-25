@@ -22,8 +22,8 @@ const NRDetailPage = () => {
       alt
     },
     desc,
-    cakereceipe->{name, line[]{amount{value, unit->{name}}, food->{name}}},
-    frostingreceipe->{name, line[]{amount{value, unit->{name}}, food->{name}}}
+    cakereceipe->{name, line[]{amount{value, unit->{name}}, food->{name}}, makesnum, makessize},
+    frostingreceipe->{name, line[]{amount{value, unit->{name}}, food->{name}}, makesnum, makessize}
   }`;
   React.useEffect(() => {
     Sclient.fetch(query)
