@@ -99,7 +99,11 @@ const NavBar = (props) => {
                 LESSON
               </MenuItem>
               <Divider />
-              <MenuItem className={classes.menuItem} dense>
+              <MenuItem
+                className={classes.menuItem}
+                dense
+                onClick={() => handleClose('/order')}
+              >
                 ORDER
               </MenuItem>
               <Divider />

@@ -13,6 +13,7 @@ import {
 } from '@material-ui/core';
 import OutsourceReceipePage from './pages/OutsourceReceipePage';
 import NRDetailPage from './pages/NRDetailPage';
+import OrderPage from './pages/OrderPage';
 
 const theme = createMuiTheme({
   overrides: {
@@ -73,6 +74,7 @@ function App() {
             <Route component={LessonPage} path='/lesson' />
             <Route component={NSSReceipe} path='/nssreceipe' />
             <Route component={NRDetailPage} path='/nssdetail' />
+            <Route component={OrderPage} path='/order' />
           </Switch>
         </Container>
       </BrowserRouter>
