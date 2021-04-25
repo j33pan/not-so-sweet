@@ -1,18 +1,17 @@
 import {
-  MenuItem,
+  Button,
   Paper,
-  Select,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableRow,
-  TextField,
   Toolbar,
   Typography,
 } from '@material-ui/core';
 import React from 'react';
 import uuid from 'react-uuid';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 
 const IngTable = (props) => {
   const { data: { name, line, makesnum, makessize } = {} } = props || {};
@@ -21,7 +20,11 @@ const IngTable = (props) => {
   return (
     <TableContainer component={Paper}>
       <Toolbar variant='dense'>
-        <Typography style={{ fontWeight: 600 }}>{name}</Typography>
+        <Typography style={{ fontWeight: 600, flexGrow: 1 }}>{name}</Typography>
+        <Button>
+          Instructions
+          <ExpandMore />
+        </Button>
       </Toolbar>
       <Table size='small'>
         <TableBody>

@@ -41,7 +41,7 @@ const NSSCard = (props) => {
             padding: 0,
           }}
         >
-          <Typography variant='h5'>{name}</Typography>
+          <Typography variant='h6'>{name}</Typography>
           <Typography
             // noWrap
             variant='body2'

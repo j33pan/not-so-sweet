@@ -8,7 +8,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import {withRouter} from 'react-router-dom';
-import { Divider } from '@material-ui/core';
+import { Box, ButtonBase, Divider } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,13 +44,13 @@ const NavBar = (props) => {
     <div className={classes.root}>
       <AppBar position='fixed' elevation={0}>
         <Toolbar>
-          <Typography
-            onClick={() => handleClose('/')}
-            variant='h5'
-            className={classes.title}
-          >
-            NOT SO SWEET
-          </Typography>
+          <Box display='flex' flexGrow={1}>
+            <ButtonBase>
+              <Typography variant='h5' onClick={() => handleClose('/')}>
+                NOT SO SWEET
+              </Typography>
+            </ButtonBase>
+          </Box>
           <div className='mobile'>
             <IconButton
               aria-label='account of current user'
