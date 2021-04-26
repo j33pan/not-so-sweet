@@ -6,10 +6,14 @@ const OrderPage = () => {
   const { getSession, logout } = React.useContext(AccountContext);
   const [status, setStatus] = React.useState(false);
   React.useEffect(() => {
-    getSession().then((session) => {
-      console.log(session);
-      setStatus(true);
-    });
+    getSession()
+      .then((session) => {
+        console.log(session);
+        setStatus(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (
