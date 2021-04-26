@@ -1,6 +1,19 @@
 import React from 'react';
-import { Button, FormGroup, TextField } from '@material-ui/core';
+import {
+  Button,
+  makeStyles,
+  Paper,
+  TextField,
+  Typography,
+} from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import UserPool from '../UserPool';
+
+const useStyles = makeStyles((theme) => ({
+  textfield: {
+    marginBottom: theme.spacing(2),
+  },
+}));
 
 const SignupPage = () => {
   const [email, setEmail] = React.useState('');
@@ -14,24 +27,45 @@ const SignupPage = () => {
     });
   };
 
+  const classes = useStyles();
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <FormGroup row>
-          <TextField label='email' onChange={(e) => setEmail(e.target.value)} />
-        </FormGroup>
-        <FormGroup row>
+    <div style={{ minHeight: '55vh', position: 'relative' }}>
+      <Paper
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          textAlign: 'center',
+          padding: 15,
+          paddingTop: 30,
+          paddingBottom: 30,
+        }}
+      >
+        <Typography variant='h5'>SIGN UP</Typography>
+        <br />
+        <br />
+        <form onSubmit={handleSubmit}>
+          <TextField
+            label='Email'
+            onChange={(e) => setEmail(e.target.value)}
+            className={classes.textfield}
+            fullWidth
+            variant='outlined'
+          />
           <TextField
             label='password'
             onChange={(e) => setPassword(e.target.value)}
+            className={classes.textfield}
+            fullWidth
+            variant='outlined'
           />
-        </FormGroup>
-        <FormGroup>
-          <Button variant='contained' color='primary' type='submit'>
+          <Button variant='contained' color='primary' type='submit' fullWidth>
             Sign up
           </Button>
-        </FormGroup>
-      </form>
+        </form>
+        <Typography>
+          Already has an account? <Link to='/login'>Log in</Link>
+        </Typography>
+      </Paper>
     </div>
   );
 };
