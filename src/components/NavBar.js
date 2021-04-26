@@ -8,7 +8,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import {withRouter} from 'react-router-dom';
-import { Box, ButtonBase, Divider } from '@material-ui/core';
+import { Box, Button, ButtonBase, Divider } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,8 +23,11 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   menuItem: {
-    color: theme.palette.common.white
-  }
+    color: theme.palette.common.white,
+  },
+  button: {
+    color: theme.palette.common.white,
+  },
 }));
 
 const NavBar = (props) => {
@@ -51,6 +56,26 @@ const NavBar = (props) => {
               </Typography>
             </ButtonBase>
           </Box>
+          <div>
+            <Button
+                                                     className={classes.button}
+                                                     onClick={() => handleClose('/nssreceipe')}
+            >
+              receipe
+            </Button>
+            <Button
+                                                     className={classes.button}
+                                                     onClick={() => handleClose('/lesson')}
+            >
+              lesson
+            </Button>
+            <Button
+              className={classes.button}
+              onClick={() => handleClose('/order')}
+            >
+              order
+            </Button>
+          </div>
           <div className='mobile'>
             <IconButton
               aria-label='account of current user'
@@ -59,7 +84,7 @@ const NavBar = (props) => {
               onClick={handleMenu}
               color='inherit'
             >
-              <MenuIcon />
+              <AccountCircleRoundedIcon />
             </IconButton>
             <Menu
               id='menu-appbar'
@@ -79,38 +104,7 @@ const NavBar = (props) => {
               <MenuItem
                 className={classes.menuItem}
                 dense
-                onClick={() => handleClose('/nssreceipe')}
-              >
-                NSS RECEIPE
-              </MenuItem>
-              <MenuItem
-                className={classes.menuItem}
-                dense
-                onClick={() => handleClose('/outsourcereceipe')}
-              >
-                RECEIPE
-              </MenuItem>
-              <Divider />
-              <MenuItem
-                className={classes.menuItem}
-                dense
-                onClick={() => handleClose('/lesson')}
-              >
-                LESSON
-              </MenuItem>
-              <Divider />
-              <MenuItem
-                className={classes.menuItem}
-                dense
-                onClick={() => handleClose('/order')}
-              >
-                ORDER
-              </MenuItem>
-              <Divider />
-              <MenuItem
-                className={classes.menuItem}
                 onClick={() => handleClose('/login')}
-                dense
               >
                 LOG IN
               </MenuItem>
