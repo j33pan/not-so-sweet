@@ -1,8 +1,9 @@
+import { Button } from '@material-ui/core';
 import React from 'react';
 import { AccountContext } from '../Account';
 
 const OrderPage = () => {
-  const { getSession } = React.useContext(AccountContext);
+  const { getSession, logout } = React.useContext(AccountContext);
   const [status, setStatus] = React.useState(false);
   React.useEffect(() => {
     getSession().then((session) => {
@@ -11,7 +12,14 @@ const OrderPage = () => {
     });
   }, []);
 
-  return <div>{status ? 'logged in' : 'not logged in'}</div>;
+  return (
+    (
+    <div>
+      {status ? 'logged in' : 'not logged in'}
+      <Button onClick={logout}>Log out</Button>
+    </div>
+  )
+  );
 };
 
 export default OrderPage;
