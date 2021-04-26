@@ -4,12 +4,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import {withRouter} from 'react-router-dom';
 import { Box, Button, ButtonBase, Divider } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 
 const useStyles = makeStyles((theme) => ({
@@ -58,14 +56,14 @@ const NavBar = (props) => {
           </Box>
           <div>
             <Button
-                                                     className={classes.button}
-                                                     onClick={() => handleClose('/nssreceipe')}
+              className={classes.button}
+              onClick={() => handleClose('/nssreceipe')}
             >
               receipe
             </Button>
             <Button
-                                                     className={classes.button}
-                                                     onClick={() => handleClose('/lesson')}
+              className={classes.button}
+              onClick={() => handleClose('/lesson')}
             >
               lesson
             </Button>
