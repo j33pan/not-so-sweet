@@ -16,6 +16,7 @@ import NRDetailPage from './pages/NRDetailPage';
 import OrderPage from './pages/OrderPage';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
+import { Account } from './Account';
 
 const theme = createMuiTheme({
   overrides: {
@@ -65,6 +66,7 @@ const theme = createMuiTheme({
 
 function App() {
   return (
+    <Account>
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
@@ -82,8 +84,9 @@ function App() {
           </Switch>
         </Container>
       </BrowserRouter>
-    </MuiThemeProvider>
-  );;
+    </MuiThemeProvider>      
+    </Account>
+  );
 }
 
 export default App;
