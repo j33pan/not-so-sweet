@@ -107,7 +107,11 @@ const NavBar = (props) => {
                 ORDER
               </MenuItem>
               <Divider />
-              <MenuItem className={classes.menuItem} dense>
+              <MenuItem
+                className={classes.menuItem}
+                onClick={() => handleClose('/signup')}
+                dense
+              >
                 LOG IN
               </MenuItem>
             </Menu>

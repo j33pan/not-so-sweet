@@ -14,6 +14,7 @@ import {
 import OutsourceReceipePage from './pages/OutsourceReceipePage';
 import NRDetailPage from './pages/NRDetailPage';
 import OrderPage from './pages/OrderPage';
+import SignupPage from './pages/SignupPage';
 
 const theme = createMuiTheme({
   overrides: {
@@ -75,6 +76,7 @@ function App() {
             <Route component={NSSReceipe} path='/nssreceipe' />
             <Route component={NRDetailPage} path='/nssdetail' />
             <Route component={OrderPage} path='/order' />
+            <Route component={SignupPage} path='/signup' />
           </Switch>
         </Container>
       </BrowserRouter>
