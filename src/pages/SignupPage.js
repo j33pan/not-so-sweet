@@ -1,14 +1,8 @@
 import React from 'react';
 import { Button, FormGroup, TextField } from '@material-ui/core';
-import { CognitoUserPool } from 'amazon-cognito-identity-js';
+import UserPool from '../UserPool';
 
 const SignupPage = () => {
-  const poolData = {
-    UserPoolId: 'ca-central-1_XOVX1q80m',
-    ClientId: '3eagie06ldu70aa7ggkvpt39fh',
-  };
-  const UserPool = new CognitoUserPool(poolData);
-
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const handleSubmit = (e) => {
