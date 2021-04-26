@@ -109,7 +109,7 @@ const NavBar = (props) => {
               <Divider />
               <MenuItem
                 className={classes.menuItem}
-                onClick={() => handleClose('/signup')}
+                onClick={() => handleClose('/login')}
                 dense
               >
                 LOG IN
