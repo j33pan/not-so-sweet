@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button, TextField,Paper,Typography } from '@material-ui/core';
+import { Button, TextField, Paper, Typography } from '@material-ui/core';
 import { AccountContext } from '../Account';
 import { makeStyles } from '@material-ui/core/styles';
-
+import { Link } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
   textfield: {
     marginBottom: theme.spacing(2),
@@ -25,24 +25,43 @@ const LoginPage = () => {
 
   const classes = useStyles()
   return (
-    <div style={{minHeight:'40vh', position:'relative'}}>
-      <Paper style={{position:'absolute', bottom:0, textAlign:'center', padding:15, paddingTop:30, paddingBottom:30}} >
-        <Typography variant='h5' className={classes.textfield}>LOG IN</Typography>
-      <form onSubmit={handleSubmit} >
-          <TextField label='Email' onChange={(e) => setEmail(e.target.value)} className={classes.textfield} fullWidth variant='outlined' />
+    <div style={{ minHeight: '55vh', position: 'relative' }}>
+      <Paper
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          textAlign: 'center',
+          padding: 15,
+          paddingTop: 30,
+          paddingBottom: 30,
+        }}
+      >
+        <Typography variant='h5'>LOG IN</Typography>
+        <br />
+        <br />
+        <form onSubmit={handleSubmit}>
+          <TextField
+            label='Email'
+            onChange={(e) => setEmail(e.target.value)}
+            className={classes.textfield}
+            fullWidth
+            variant='outlined'
+          />
           <TextField
             label='password'
             onChange={(e) => setPassword(e.target.value)}
-            className={classes.textfield} 
-            fullWidth variant='outlined'
+            className={classes.textfield}
+            fullWidth
+            variant='outlined'
           />
           <Button variant='contained' color='primary' type='submit' fullWidth>
             Log in
           </Button>
-      </form>
-      
+        </form>
+        <Typography>
+          need an account? <Link to='/signup'>Sign up</Link>
+        </Typography>
       </Paper>
-
     </div>
   );
 };
