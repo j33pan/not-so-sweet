@@ -66,8 +66,17 @@ const theme = createMuiTheme({
 });
 
 function App() {
-  const { authenticated } = React.useContext(AccountContext);
-
+  const { authenticated, getSession } = React.useContext(AccountContext);
+  React.useEffect(() => {
+    getSession()
+      .then((session) => {
+        console.log(session);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />

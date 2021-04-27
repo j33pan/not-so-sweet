@@ -49,6 +49,7 @@ const [authenticated, setAuthenticated] = React.useState(false);
         newPasswordRequired: (data) => {
           console.log('newPasswordRequired: ', data);
           resolve(data);
+          setAuthenticated(true);
         },
       });
     });
