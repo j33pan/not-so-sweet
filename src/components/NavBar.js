@@ -10,6 +10,7 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
 import {withRouter} from 'react-router-dom';
 import {
   Box,
@@ -78,20 +79,28 @@ const NavBar = (props) => {
                 <IconButton color='inherit' onClick={handledrawertoggle}>
                   <MenuIcon />
                 </IconButton>
-                <Drawer open={opendrawer} onClose={handledrawertoggle} classes={{ paper: classes.paper }}>
+                <Drawer
+                  open={opendrawer}
+                  onClose={handledrawertoggle}
+                  classes={{ paper: classes.paper }}
+                >
                   <div>
                     <List>
                       <ListItem onClick={() => handleClose('/nssreceipe')}>
-                        <ListItemText primary='PREMIUM RECEIPE'   />
+                        <ListItemText primary='PREMIUM RECEIPE' />
                       </ListItem>
-                      <ListItem onClick={() => handleClose('/outsourcereceipe')}>
-                        <ListItemText primary='EXPORE RECEIPE'   />
+                      <ListItem
+                        onClick={() => handleClose('/outsourcereceipe')}
+                      >
+                        <ListItemText primary='EXPORE RECEIPE' />
                       </ListItem>
+                      <Divider />
                       <ListItem onClick={() => handleClose('/lesson')}>
-                        <ListItemText primary='LESSON'   />
+                        <ListItemText primary='LESSON' />
                       </ListItem>
+                      <Divider />
                       <ListItem onClick={() => handleClose('/order')}>
-                        <ListItemText primary='ORDER'   />
+                        <ListItemText primary='ORDER' />
                       </ListItem>
                     </List>
                   </div>
@@ -112,7 +121,13 @@ const NavBar = (props) => {
                 className={classes.button}
                 onClick={() => handleClose('/nssreceipe')}
               >
-                receipe
+                premium receipe
+              </Button>
+              <Button
+                className={classes.button}
+                onClick={() => handleClose('/outsourcereceipe')}
+              >
+                expore receipe
               </Button>
               <Button
                 className={classes.button}
