@@ -29,7 +29,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NavBar = (props) => {
-  const {history} = props
+  // console.log(props);
+  const { history, isLoggedin } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -104,7 +105,7 @@ const NavBar = (props) => {
                 dense
                 onClick={() => handleClose('/login')}
               >
-                LOG IN
+                {isLoggedin ? 'SIGN OUT' : 'LOG IN'}
               </MenuItem>
             </Menu>
           </div>

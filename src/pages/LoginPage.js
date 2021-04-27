@@ -10,21 +10,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LoginPage = () => {
+const LoginPage = (props) => {
+  const { history } = props;
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
-  const {  authenticate  } = React.useContext(AccountContext);
+  const { authenticate } = React.useContext(AccountContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email + ' ' + password);  
+    console.log(email + ' ' + password);
     authenticate(email, password)
-    .then(result => {console.log('success: ', result)})
-    .catch(err => {console.log('err: ', err)})
+        .then(data => {
+          console.log(data)
+          history.push('/')
+        })
+        .catch(err => {
+          console.log(err)
+        })
   };
 
-  const classes = useStyles()
+  const classes = useStyles();
   return (
     <div style={{ minHeight: '55vh', position: 'relative' }}>
       <Paper
