@@ -5,13 +5,18 @@ import UserPool from './UserPool';
 const AccountContext = React.createContext();
 
 const Account = (props) => {
+const [authenticated, setAuthenticated] = React.useState(false);
+
   const getSession = async () => {
     await new Promise((resolve, reject) => {
       const user = UserPool.getCurrentUser();
       if (user) {
         user.getSession((err, session) => {
-          if (err) reject();
-          else {
+          if (err) {
+            reject();
+            setAuthenticated(false);
+          } else {
+            setAuthenticated(true);
             resolve(session);
             console.log(session);
           }
@@ -32,10 +37,12 @@ const Account = (props) => {
       });
       user.authenticateUser(authdetails, {
         onSuccess: (data) => {
+          setAuthenticated(true);
           console.log('success: ', data);
           resolve(data);
         },
         onFailure: (err) => {
+          setAuthenticated(false);
           console.log('err: ', err);
           reject(err);
         },
@@ -50,10 +57,19 @@ const Account = (props) => {
   const logout = () => {
     const user = UserPool.getCurrentUser();
     if (user) user.signOut();
+    setAuthenticated(false);
   };
 
   return (
-    <AccountContext.Provider value={{ authenticate, getSession, logout }}>
+    <AccountContext.Provider
+      value={{
+        authenticate,
+        getSession,
+        logout,
+        authenticated,
+        setAuthenticated,
+      }}
+    >
       {props.children}
     </AccountContext.Provider>
   );

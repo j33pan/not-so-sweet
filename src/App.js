@@ -66,25 +66,14 @@ const theme = createMuiTheme({
 });
 
 function App() {
-  const { getSession, logout } = React.useContext(AccountContext);
-  const [authenticated, setAuthenticated] = React.useState(false);
-  React.useEffect(() => {
-    getSession()
-      .then((session) => {
-        console.log(session);
-        setAuthenticated(true);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-  
+  const { authenticated } = React.useContext(AccountContext);
+
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
-        <NavBar isLoggedin={authenticated} />
-        {authenticated?'logged in':'not logged in'}
+        <NavBar />
+        {authenticated ? 'logged in' : 'not logged in'}
         <Container>
           <Switch>
             <Route component={HomePage} path='/' exact />
@@ -98,7 +87,7 @@ function App() {
           </Switch>
         </Container>
       </BrowserRouter>
-    </MuiThemeProvider>      
+    </MuiThemeProvider>
   );
 }
 

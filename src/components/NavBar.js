@@ -21,6 +21,7 @@ import {
 } from '@material-ui/core';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import MenuIcon from '@material-ui/icons/Menu';
+import { AccountContext } from '../Account';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,10 +46,11 @@ const useStyles = makeStyles((theme) => ({
 
 const NavBar = (props) => {
   // console.log(props);
-  const { history, isLoggedin } = props;
+  const { history } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const { authenticated, logout } = React.useContext(AccountContext);
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -70,7 +72,11 @@ const NavBar = (props) => {
   };
 
   const handleAccount = (pageUrl) => {
-    history.push(pageUrl);
+    if (!authenticated) {
+      history.push(pageUrl);
+    } else {
+      logout();
+    }
     setAnchorEl(null);
   }
 
@@ -180,7 +186,7 @@ const NavBar = (props) => {
                 dense
                 onClick={() => handleAccount('/login')}
               >
-                {isLoggedin ? 'SIGN OUT' : 'LOG IN'}
+                {authenticated ? 'SIGN OUT' : 'LOG IN'}
               </MenuItem>
             </Menu>
           </div>
