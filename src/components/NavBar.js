@@ -69,6 +69,11 @@ const NavBar = (props) => {
     setopendrawer(!opendrawer);
   };
 
+  const handleAccount = (pageUrl) => {
+    history.push(pageUrl);
+    setAnchorEl(null);
+  }
+
   return (
     <div className={classes.root}>
       <AppBar position='fixed' elevation={0}>
@@ -173,7 +178,7 @@ const NavBar = (props) => {
               <MenuItem
                 className={classes.menuItem}
                 dense
-                onClick={() => handleClose('/login')}
+                onClick={() => handleAccount('/login')}
               >
                 {isLoggedin ? 'SIGN OUT' : 'LOG IN'}
               </MenuItem>

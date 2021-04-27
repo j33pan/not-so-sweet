@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage';
@@ -16,7 +17,7 @@ import NRDetailPage from './pages/NRDetailPage';
 import OrderPage from './pages/OrderPage';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
-import { Account } from './Account';
+import { AccountContext } from './Account';
 
 const theme = createMuiTheme({
   overrides: {
@@ -65,12 +66,25 @@ const theme = createMuiTheme({
 });
 
 function App() {
+  const { getSession, logout } = React.useContext(AccountContext);
+  const [authenticated, setAuthenticated] = React.useState(false);
+  React.useEffect(() => {
+    getSession()
+      .then((session) => {
+        console.log(session);
+        setAuthenticated(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  
   return (
-    <Account>
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
-        <NavBar />
+        <NavBar isLoggedin={authenticated} />
+        {authenticated?'logged in':'not logged in'}
         <Container>
           <Switch>
             <Route component={HomePage} path='/' exact />
@@ -85,7 +99,6 @@ function App() {
         </Container>
       </BrowserRouter>
     </MuiThemeProvider>      
-    </Account>
   );
 }
 
