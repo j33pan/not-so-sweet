@@ -60,42 +60,42 @@ const NavBar = (props) => {
       <AppBar position='fixed' elevation={0}>
         <Toolbar>
           <Box display='flex' flexGrow={1}>
-            {ismobile?(            <IconButton color='inherit' >
-              <MenuIcon />
-            </IconButton>):(<div></div>)}
+            {ismobile ? (
+              <IconButton color='inherit'>
+                <MenuIcon />
+              </IconButton>
+            ) : (
+              <div></div>
+            )}
             <ButtonBase>
               <Typography variant='h5' onClick={() => handleClose('/')}>
                 NOT SO SWEET
               </Typography>
             </ButtonBase>
           </Box>
-          {!ismobile  ?  (
-  
+          {!ismobile ? (
             <div>
-                <Button
-                  className={classes.button}
-                  onClick={() => handleClose('/nssreceipe')}
-                >
-                  receipe
-                </Button>
-                <Button
-                  className={classes.button}
-                  onClick={() => handleClose('/lesson')}
-                >
-                  lesson
-                </Button>
-                <Button
-                  className={classes.button}
-                  onClick={() => handleClose('/order')}
-                >
-                  order
-                </Button>
-              </div>
-          
-          )  :  (
-            
+              <Button
+                className={classes.button}
+                onClick={() => handleClose('/nssreceipe')}
+              >
+                receipe
+              </Button>
+              <Button
+                className={classes.button}
+                onClick={() => handleClose('/lesson')}
+              >
+                lesson
+              </Button>
+              <Button
+                className={classes.button}
+                onClick={() => handleClose('/order')}
+              >
+                order
+              </Button>
+            </div>
+          ) : (
             <div></div>
-          
           )}
           <div className='mobile'>
             <IconButton
