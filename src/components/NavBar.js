@@ -22,6 +22,7 @@ import {
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import MenuIcon from '@material-ui/icons/Menu';
 import { AccountContext } from '../Account';
+import { NotificationContext } from '../NotificationProvider';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -71,11 +72,13 @@ const NavBar = (props) => {
     setopendrawer(!opendrawer);
   };
 
+  const { add } = React.useContext(NotificationContext);
   const handleAccount = (pageUrl) => {
     if (!authenticated) {
       history.push(pageUrl);
     } else {
       logout();
+      add('signed out.');
     }
     setAnchorEl(null);
   }
