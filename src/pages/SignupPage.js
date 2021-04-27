@@ -8,6 +8,7 @@ import {
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import UserPool from '../UserPool';
+import { NotificationContext } from '../NotificationProvider';
 
 const useStyles = makeStyles((theme) => ({
   textfield: {
@@ -28,12 +29,14 @@ const useStyles = makeStyles((theme) => ({
 const SignupPage = () => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const { add } = React.useContext(NotificationContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email + ' ' + password);
+
     UserPool.signUp(email, password, [], null, (err, result) => {
-      if (err) console.log(err);
-      console.log(result);
+      if (err) add(err.message);
+      else add('Signed up.');
     });
   };
 
