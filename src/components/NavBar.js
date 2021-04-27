@@ -7,8 +7,15 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import {withRouter} from 'react-router-dom';
-import { Box, Button, ButtonBase, Divider } from '@material-ui/core';
+import {
+  Box,
+  Button,
+  ButtonBase,
+  useTheme,
+  useMediaQuery,
+} from '@material-ui/core';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,37 +51,52 @@ const NavBar = (props) => {
     setAnchorEl(null);
   };
 
+  const theme = useTheme();
+  const ismobile = useMediaQuery(theme.breakpoints.down('sm'));
+  console.log(ismobile)
+  
   return (
     <div className={classes.root}>
       <AppBar position='fixed' elevation={0}>
         <Toolbar>
           <Box display='flex' flexGrow={1}>
+            {ismobile?(            <IconButton color='inherit' >
+              <MenuIcon />
+            </IconButton>):(<div></div>)}
             <ButtonBase>
               <Typography variant='h5' onClick={() => handleClose('/')}>
                 NOT SO SWEET
               </Typography>
             </ButtonBase>
           </Box>
-          <div>
-            <Button
-              className={classes.button}
-              onClick={() => handleClose('/nssreceipe')}
-            >
-              receipe
-            </Button>
-            <Button
-              className={classes.button}
-              onClick={() => handleClose('/lesson')}
-            >
-              lesson
-            </Button>
-            <Button
-              className={classes.button}
-              onClick={() => handleClose('/order')}
-            >
-              order
-            </Button>
-          </div>
+          {!ismobile  ?  (
+  
+            <div>
+                <Button
+                  className={classes.button}
+                  onClick={() => handleClose('/nssreceipe')}
+                >
+                  receipe
+                </Button>
+                <Button
+                  className={classes.button}
+                  onClick={() => handleClose('/lesson')}
+                >
+                  lesson
+                </Button>
+                <Button
+                  className={classes.button}
+                  onClick={() => handleClose('/order')}
+                >
+                  order
+                </Button>
+              </div>
+          
+          )  :  (
+            
+            <div></div>
+          
+          )}
           <div className='mobile'>
             <IconButton
               aria-label='account of current user'
