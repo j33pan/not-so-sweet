@@ -5,7 +5,7 @@ import UserPool from './UserPool';
 const AccountContext = React.createContext();
 
 const Account = (props) => {
-const [authenticated, setAuthenticated] = React.useState(false);
+  const [authenticated, setAuthenticated] = React.useState(false);
 
   const getSession = async () => {
     await new Promise((resolve, reject) => {
@@ -25,7 +25,7 @@ const [authenticated, setAuthenticated] = React.useState(false);
     });
   };
 
-  const authenticate = async (email, password) => {
+  const authenticate = async (email, password) =>
     await new Promise((resolve, reject) => {
       const user = new CognitoUser({
         Username: email,
@@ -36,24 +36,16 @@ const [authenticated, setAuthenticated] = React.useState(false);
         Password: password,
       });
       user.authenticateUser(authdetails, {
-        onSuccess: (data) => {
+        onSuccess: function (result) {
           setAuthenticated(true);
-          console.log('success: ', data);
-          resolve(data);
+          resolve(result);
         },
-        onFailure: (err) => {
+        onFailure: function (err) {
           setAuthenticated(false);
-          console.log('err: ', err);
           reject(err);
-        },
-        newPasswordRequired: (data) => {
-          console.log('newPasswordRequired: ', data);
-          resolve(data);
-          setAuthenticated(true);
         },
       });
     });
-  };
 
   const logout = () => {
     const user = UserPool.getCurrentUser();

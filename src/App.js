@@ -75,7 +75,7 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [authenticated, getSession]);
   
   return (
     <MuiThemeProvider theme={theme}>
