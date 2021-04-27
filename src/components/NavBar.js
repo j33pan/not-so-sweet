@@ -85,8 +85,8 @@ const NavBar = (props) => {
       <AppBar position='fixed' elevation={0}>
         <Toolbar>
           <Box display='flex' flexGrow={1}>
-            {ismobile ? (
-              <div>
+            {ismobile &&
+              (<div>
                 <IconButton color='inherit' onClick={handledrawertoggle}>
                   <MenuIcon />
                 </IconButton>
@@ -117,8 +117,6 @@ const NavBar = (props) => {
                   </div>
                 </Drawer>
               </div>
-            ) : (
-              <div></div>
             )}
             <ButtonBase>
               <Typography variant='h5' onClick={() => history.push('/')}>
@@ -126,7 +124,7 @@ const NavBar = (props) => {
               </Typography>
             </ButtonBase>
           </Box>
-          {!ismobile ? (
+          {!ismobile && (
             <div>
               <Button
                 className={classes.button}
@@ -153,8 +151,6 @@ const NavBar = (props) => {
                 order
               </Button>
             </div>
-          ) : (
-            <div></div>
           )}
           <div className='mobile'>
             <IconButton
