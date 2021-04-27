@@ -18,6 +18,8 @@ import OrderPage from './pages/OrderPage';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import { AccountContext } from './Account';
+import { NotificationProvider } from './NotificationProvider';
+import Notification from './components/Notification';
 
 const theme = createMuiTheme({
   overrides: {
@@ -70,32 +72,38 @@ function App() {
   React.useEffect(() => {
     getSession()
       .then((session) => {
-        console.log(session);
+        // console.log(session);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   }, [authenticated, getSession]);
   
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
-      <BrowserRouter>
-        <NavBar />
-        {authenticated ? 'logged in' : 'not logged in'}
-        <Container>
-          <Switch>
-            <Route component={HomePage} path='/' exact />
-            <Route component={OutsourceReceipePage} path='/outsourcereceipe' />
-            <Route component={LessonPage} path='/lesson' />
-            <Route component={NSSReceipe} path='/nssreceipe' />
-            <Route component={NRDetailPage} path='/nssdetail' />
-            <Route component={OrderPage} path='/order' />
-            <Route component={SignupPage} path='/signup' />
-            <Route component={LoginPage} path='/login' />
-          </Switch>
-        </Container>
-      </BrowserRouter>
+      <NotificationProvider>
+          <BrowserRouter>
+            <Notification />
+            <NavBar />
+            {authenticated ? 'logged in' : 'not logged in'}
+            <Container>
+              <Switch>
+                <Route component={HomePage} path='/' exact />
+                <Route
+                  component={OutsourceReceipePage}
+                  path='/outsourcereceipe'
+               />
+                <Route component={LessonPage} path='/lesson' />
+                <Route component={NSSReceipe} path='/nssreceipe' />
+                <Route component={NRDetailPage} path='/nssdetail' />
+                <Route component={OrderPage} path='/order' />
+                <Route component={SignupPage} path='/signup' />
+                <Route component={LoginPage} path='/login' />
+              </Switch>
+            </Container>
+          </BrowserRouter>
+      </NotificationProvider>
     </MuiThemeProvider>
   );
 }
