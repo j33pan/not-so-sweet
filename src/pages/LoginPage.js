@@ -15,9 +15,9 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     paddingTop: '17vh',
     [theme.breakpoints.up('sm')]: {
-      paddingTop: '24vh'
-    }
-  }
+      paddingTop: '24vh',
+    },
+  },
 }));
 
 const LoginPage = (props) => {

@@ -13,6 +13,16 @@ const useStyles = makeStyles((theme) => ({
   textfield: {
     marginBottom: theme.spacing(2),
   },
+  wrapper: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    paddingTop: '17vh',
+    [theme.breakpoints.up('sm')]: {
+      paddingTop: '24vh'
+    }
+  }
 }));
 
 const SignupPage = () => {
@@ -29,11 +39,9 @@ const SignupPage = () => {
 
   const classes = useStyles();
   return (
-    <div style={{ minHeight: '55vh', position: 'relative' }}>
+    <div className={classes.wrapper}>
       <Paper
         style={{
-          position: 'absolute',
-          bottom: 0,
           textAlign: 'center',
           padding: 15,
           paddingTop: 30,
