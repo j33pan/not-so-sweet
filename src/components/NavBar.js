@@ -6,6 +6,10 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 import {withRouter} from 'react-router-dom';
 import {
   Box,
@@ -33,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
   button: {
     color: theme.palette.common.white,
   },
+  paper: {
+    background: theme.palette.common.white
+  }
 }));
 
 const NavBar = (props) => {
@@ -47,28 +54,54 @@ const NavBar = (props) => {
   };
 
   const handleClose = (pageUrl) => {
-    history.push(pageUrl)
+    history.push(pageUrl);
     setAnchorEl(null);
+    handledrawertoggle()
   };
 
   const theme = useTheme();
   const ismobile = useMediaQuery(theme.breakpoints.down('sm'));
-  console.log(ismobile)
-  
+  // console.log(ismobile)
+
+  const [opendrawer, setopendrawer] = React.useState(false);
+  const handledrawertoggle = () => {
+    setopendrawer(!opendrawer);
+  };
+
   return (
     <div className={classes.root}>
       <AppBar position='fixed' elevation={0}>
         <Toolbar>
           <Box display='flex' flexGrow={1}>
             {ismobile ? (
-              <IconButton color='inherit'>
-                <MenuIcon />
-              </IconButton>
+              <div>
+                <IconButton color='inherit' onClick={handledrawertoggle}>
+                  <MenuIcon />
+                </IconButton>
+                <Drawer open={opendrawer} onClose={handledrawertoggle} classes={{ paper: classes.paper }}>
+                  <div>
+                    <List>
+                      <ListItem onClick={() => handleClose('/nssreceipe')}>
+                        <ListItemText primary='PREMIUM RECEIPE'   />
+                      </ListItem>
+                      <ListItem onClick={() => handleClose('/outsourcereceipe')}>
+                        <ListItemText primary='EXPORE RECEIPE'   />
+                      </ListItem>
+                      <ListItem onClick={() => handleClose('/lesson')}>
+                        <ListItemText primary='LESSON'   />
+                      </ListItem>
+                      <ListItem onClick={() => handleClose('/order')}>
+                        <ListItemText primary='ORDER'   />
+                      </ListItem>
+                    </List>
+                  </div>
+                </Drawer>
+              </div>
             ) : (
               <div></div>
             )}
             <ButtonBase>
-              <Typography variant='h5' onClick={() => handleClose('/')}>
+              <Typography variant='h5' onClick={() => history.push('/')}>
                 NOT SO SWEET
               </Typography>
             </ButtonBase>
