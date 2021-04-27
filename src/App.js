@@ -72,10 +72,10 @@ function App() {
   React.useEffect(() => {
     getSession()
       .then((session) => {
-        // console.log(session);
+        console.log(session);
       })
       .catch((err) => {
-        // console.log(err);
+        console.log(err);
       });
   }, [authenticated, getSession]);
   

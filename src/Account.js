@@ -7,10 +7,11 @@ const AccountContext = React.createContext();
 const Account = (props) => {
   const [authenticated, setAuthenticated] = React.useState(false);
 
-  const getSession = async () => {
+  const getSession = async () => 
     await new Promise((resolve, reject) => {
       const user = UserPool.getCurrentUser();
       if (user) {
+        console.log(user)
         user.getSession((err, session) => {
           if (err) {
             reject();
@@ -23,7 +24,6 @@ const Account = (props) => {
         });
       } else reject();
     });
-  };
 
   const authenticate = async (email, password) =>
     await new Promise((resolve, reject) => {
