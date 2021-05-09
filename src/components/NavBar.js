@@ -1,28 +1,28 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
-import {withRouter} from 'react-router-dom';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
+import Drawer from "@material-ui/core/Drawer";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import Divider from "@material-ui/core/Divider";
+import { withRouter } from "react-router-dom";
 import {
   Box,
   Button,
   ButtonBase,
   useTheme,
   useMediaQuery,
-} from '@material-ui/core';
-import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
-import MenuIcon from '@material-ui/icons/Menu';
-import { AccountContext } from '../Account';
-import { NotificationContext } from '../NotificationProvider';
+} from "@material-ui/core";
+import AccountCircleRoundedIcon from "@material-ui/icons/AccountCircleRounded";
+import MenuIcon from "@material-ui/icons/Menu";
+import { AccountContext } from "../Account";
+import { NotificationContext } from "../NotificationProvider";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,8 +41,8 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.white,
   },
   paper: {
-    background: theme.palette.common.white
-  }
+    background: theme.palette.common.white,
+  },
 }));
 
 const NavBar = (props) => {
@@ -60,11 +60,11 @@ const NavBar = (props) => {
   const handleClose = (pageUrl) => {
     history.push(pageUrl);
     setAnchorEl(null);
-    handledrawertoggle()
+    handledrawertoggle();
   };
 
   const theme = useTheme();
-  const ismobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const ismobile = useMediaQuery(theme.breakpoints.down("sm"));
   // console.log(ismobile)
 
   const [opendrawer, setopendrawer] = React.useState(false);
@@ -78,19 +78,19 @@ const NavBar = (props) => {
       history.push(pageUrl);
     } else {
       logout();
-      add('signed out.');
+      add("signed out.");
     }
     setAnchorEl(null);
-  }
+  };
 
   return (
     <div className={classes.root}>
-      <AppBar position='fixed' elevation={0}>
+      <AppBar position="fixed" elevation={0}>
         <Toolbar>
-          <Box display='flex' flexGrow={1}>
-            {ismobile &&
-              (<div>
-                <IconButton color='inherit' onClick={handledrawertoggle}>
+          <Box display="flex" flexGrow={1}>
+            {ismobile && (
+              <div>
+                <IconButton color="inherit" onClick={handledrawertoggle}>
                   <MenuIcon />
                 </IconButton>
                 <Drawer
@@ -100,29 +100,29 @@ const NavBar = (props) => {
                 >
                   <div>
                     <List>
-                      <ListItem onClick={() => handleClose('/nssreceipe')}>
-                        <ListItemText primary='PREMIUM RECEIPE' />
+                      <ListItem onClick={() => handleClose("/nssreceipe")}>
+                        <ListItemText primary="PREMIUM RECEIPE" />
                       </ListItem>
                       <ListItem
-                        onClick={() => handleClose('/outsourcereceipe')}
+                        onClick={() => handleClose("/outsourcereceipe")}
                       >
-                        <ListItemText primary='EXPORE RECEIPE' />
+                        <ListItemText primary="EXPORE RECEIPE" />
                       </ListItem>
                       <Divider />
-                      <ListItem onClick={() => handleClose('/lesson')}>
-                        <ListItemText primary='LESSON' />
+                      <ListItem onClick={() => handleClose("/lesson")}>
+                        <ListItemText primary="LESSON" />
                       </ListItem>
-                      <Divider />
-                      <ListItem onClick={() => handleClose('/order')}>
-                        <ListItemText primary='ORDER' />
-                      </ListItem>
+                      {/* <Divider />
+                      <ListItem onClick={() => handleClose("/order")}>
+                        <ListItemText primary="ORDER" />
+                      </ListItem> */}
                     </List>
                   </div>
                 </Drawer>
               </div>
             )}
             <ButtonBase>
-              <Typography variant='h5' onClick={() => history.push('/')}>
+              <Typography variant="h5" onClick={() => history.push("/")}>
                 NOT SO SWEET
               </Typography>
             </ButtonBase>
@@ -131,32 +131,32 @@ const NavBar = (props) => {
             <div>
               <Button
                 className={classes.button}
-                onClick={() => handleClose('/nssreceipe')}
+                onClick={() => handleClose("/nssreceipe")}
               >
                 premium receipe
               </Button>
               <Button
                 className={classes.button}
-                onClick={() => handleClose('/outsourcereceipe')}
+                onClick={() => handleClose("/outsourcereceipe")}
               >
                 expore receipe
               </Button>
               <Button
                 className={classes.button}
-                onClick={() => handleClose('/lesson')}
+                onClick={() => handleClose("/lesson")}
               >
                 lesson
               </Button>
-              <Button
+              {/* <Button
                 className={classes.button}
-                onClick={() => handleClose('/order')}
+                onClick={() => handleClose("/order")}
               >
                 order
-              </Button>
+              </Button> */}
             </div>
           )}
-          <div className='mobile'>
-            <IconButton
+          <div className="mobile">
+            {/* <IconButton
               aria-label='account of current user'
               aria-controls='menu-appbar'
               aria-haspopup='true'
@@ -187,13 +187,13 @@ const NavBar = (props) => {
               >
                 {authenticated ? 'SIGN OUT' : 'LOG IN'}
               </MenuItem>
-            </Menu>
+            </Menu> */}
           </div>
         </Toolbar>
       </AppBar>
-      <Toolbar style={{ marginBottom: '20px' }} />
+      <Toolbar style={{ marginBottom: "20px" }} />
     </div>
   );
-}
+};
 
-export default withRouter(NavBar)
+export default withRouter(NavBar);

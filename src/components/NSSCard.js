@@ -7,10 +7,10 @@ import {
   IconButton,
   Typography,
   Button,
-} from '@material-ui/core';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import React from 'react';
+} from "@material-ui/core";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import ShareIcon from "@material-ui/icons/Share";
+import React from "react";
 
 const NSSCard = (props) => {
   const {
@@ -30,9 +30,9 @@ const NSSCard = (props) => {
       <CardActionArea style={{ padding: 12 }}>
         <CardMedia
           style={{
-            width: '100%',
+            width: "100%",
             height: imgHeight,
-            display: 'block',
+            display: "block",
           }}
           image={url}
         />
@@ -41,12 +41,12 @@ const NSSCard = (props) => {
             padding: 0,
           }}
         >
-          <Typography variant='h6'>{name}</Typography>
+          <Typography variant="h6">{name}</Typography>
           <Typography
             // noWrap
-            variant='body2'
-            color='textSecondary'
-            component='p'
+            variant="body2"
+            color="textSecondary"
+            component="p"
           >
             {desc}
           </Typography>
@@ -55,22 +55,22 @@ const NSSCard = (props) => {
       <CardActions
         disableSpacing
         style={{
-          padding: 0,
+          padding: 10,
           paddingRight: 12,
         }}
       >
-        <IconButton>
+        {/* <IconButton>
           <FavoriteIcon />
         </IconButton>
         <IconButton>
           <ShareIcon />
-        </IconButton>
+        </IconButton> */}
         <Button
           onClick={go2detail}
-          variant='contained'
-          size='small'
-          color='primary'
-          style={{ marginLeft: 'auto' }}
+          variant="contained"
+          size="small"
+          color="primary"
+          // style={{ marginLeft: "auto" }}
         >
           View
         </Button>

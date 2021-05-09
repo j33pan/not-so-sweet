@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const LessonPage = () => {
-  return <h1>lesson</h1>;
+  return <h1>Coming soon...</h1>;
 };
 
 export default LessonPage;
