@@ -85,12 +85,12 @@ function App() {
           {/* {authenticated ? 'logged in' : 'not logged in'} */}
           <Container style={{ paddingBottom: 200 }}>
             <Switch>
-              <Route component={NSSReceipe} path="/" exact />
+              <Route component={NSSReceipe} path="/not-so-sweet" exact />
               <Route
                 component={OutsourceReceipePage}
-                path="/outsourcereceipe"
+                path="/not-so-sweet/outsourcereceipe"
               />
-              <Route component={LessonPage} path="/lesson" />
+              <Route component={LessonPage} path="/not-so-sweet/lesson" />
               <Route component={NSSReceipe} path="/nssreceipe" />
               <Route component={NRDetailPage} path="/nssdetail" />
               <Route component={OrderPage} path="/order" />

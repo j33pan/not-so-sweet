@@ -100,16 +100,20 @@ const NavBar = (props) => {
                 >
                   <div>
                     <List>
-                      <ListItem onClick={() => handleClose("/nssreceipe")}>
+                      <ListItem onClick={() => handleClose("/not-so-sweet")}>
                         <ListItemText primary="PREMIUM RECEIPE" />
                       </ListItem>
                       <ListItem
-                        onClick={() => handleClose("/outsourcereceipe")}
+                        onClick={() =>
+                          handleClose("/not-so-sweet/outsourcereceipe")
+                        }
                       >
                         <ListItemText primary="EXPORE RECEIPE" />
                       </ListItem>
-                      <Divider />
-                      <ListItem onClick={() => handleClose("/lesson")}>
+                      {/* <Divider /> */}
+                      <ListItem
+                        onClick={() => handleClose("/not-so-sweet/lesson")}
+                      >
                         <ListItemText primary="LESSON" />
                       </ListItem>
                       {/* <Divider />
@@ -122,7 +126,10 @@ const NavBar = (props) => {
               </div>
             )}
             <ButtonBase>
-              <Typography variant="h5" onClick={() => history.push("/")}>
+              <Typography
+                variant="h5"
+                onClick={() => history.push("/not-so-sweet")}
+              >
                 NOT SO SWEET
               </Typography>
             </ButtonBase>
@@ -131,19 +138,19 @@ const NavBar = (props) => {
             <div>
               <Button
                 className={classes.button}
-                onClick={() => handleClose("/nssreceipe")}
+                onClick={() => handleClose("/not-so-sweet")}
               >
                 premium receipe
               </Button>
               <Button
                 className={classes.button}
-                onClick={() => handleClose("/outsourcereceipe")}
+                onClick={() => handleClose("/not-so-sweet/outsourcereceipe")}
               >
                 expore receipe
               </Button>
               <Button
                 className={classes.button}
-                onClick={() => handleClose("/lesson")}
+                onClick={() => handleClose("/not-so-sweet/lesson")}
               >
                 lesson
               </Button>
