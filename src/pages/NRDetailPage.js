@@ -23,7 +23,7 @@ const NRDetailPage = () => {
     },
     desc,
     cakereceipe->{name, line[]{amount{value, unit->{name}}, food->{name}}, makesnum, makessize, instructions->{content}},
-    frostingreceipe->{name, line[]{amount{value, unit->{name}}, food->{name}}, makesnum, makessize},
+    frostingreceipe->{name, line[]{amount{value, unit->{name}}, food->{name}}, makesnum, makessize, instructions->{content}},
   }`;
   React.useEffect(() => {
     Sclient.fetch(query)
@@ -43,7 +43,7 @@ const NRDetailPage = () => {
         overflow: "hidden",
       }}
     >
-      <Grid container spacing={2} style={{ maxWidth: 700 }}>
+      <Grid container spacing={2} style={{ maxWidth: 700, paddingBottom: 30 }}>
         <Grid item xs={12}>
           <Typography variant="h5">{name}</Typography>
         </Grid>

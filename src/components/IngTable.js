@@ -77,9 +77,10 @@ const IngTable = (props) => {
       </TableContainer>
       <Collapse in={expanded}>
         <CardContent>
-          {instructions.content.map((x, index) => (
-            <Typography key={index + "instruction"}>{x}</Typography>
-          ))}
+          {instructions &&
+            instructions.content.map((x, index) => (
+              <Typography key={index + "instruction"}>{x}</Typography>
+            ))}
         </CardContent>
       </Collapse>
     </div>

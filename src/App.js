@@ -92,7 +92,7 @@ function App() {
               />
               <Route component={LessonPage} path="/not-so-sweet/lesson" />
               <Route component={NSSReceipe} path="/nssreceipe" />
-              <Route component={NRDetailPage} path="/nssdetail" />
+              <Route component={NRDetailPage} path="/not-so-sweet/nssdetail" />
               <Route component={OrderPage} path="/order" />
               <Route component={SignupPage} path="/signup" />
               <Route component={LoginPage} path="/login" />
