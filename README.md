@@ -44,9 +44,6 @@ export default {
       to: [{ type: "frostingreceipe" }],
     },
   ],
-  // preview: {
-  //   select: { title: 'name', media: 'image' },
-  // },
 };
 
 export default {
