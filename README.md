@@ -5,6 +5,20 @@
 - Data is stored in [Sanity Content Lake](https://www.sanity.io/docs/reference). Also integrated with [Edamam Receipe Search API](https://developer.edamam.com/edamam-docs-recipe-api) to get inspirations from receipes around the world XD
 - This app is responsive.
 
+### `npm start`
+
+### `npm test`
+
+### `npm run build`
+
+### `gh-pages -d build`
+
+### `sanity init`
+
+### `sanity start`
+
+### `sanity deploy`
+
 #### Schema Design
 
 ```javascript
@@ -168,11 +182,3 @@ export default {
   ],
 };
 ```
-
-### `npm start`
-
-### `npm test`
-
-### `npm run build`
-
-### `gh-pages -d build`

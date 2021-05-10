@@ -22,13 +22,13 @@ const NRDetailPage = () => {
       alt
     },
     desc,
-    cakereceipe->{name, line[]{amount{value, unit->{name}}, food->{name}}, makesnum, makessize},
-    frostingreceipe->{name, line[]{amount{value, unit->{name}}, food->{name}}, makesnum, makessize}
+    cakereceipe->{name, line[]{amount{value, unit->{name}}, food->{name}}, makesnum, makessize, instructions->{content}},
+    frostingreceipe->{name, line[]{amount{value, unit->{name}}, food->{name}}, makesnum, makessize},
   }`;
   React.useEffect(() => {
     Sclient.fetch(query)
       .then((x) => {
-        // console.log(x[0]);
+        console.log(x[0]);
         setData(x[0]);
       })
       .catch(console.error);
@@ -53,12 +53,16 @@ const NRDetailPage = () => {
         <Grid item xs={12}>
           <img src={url} alt="img" style={{ width: "100%" }} />
         </Grid>
-        <Grid item xs={12}>
-          <IngTable data={cakereceipe} />
-        </Grid>
-        <Grid item xs={12}>
-          <IngTable data={frostingreceipe} />
-        </Grid>
+        {cakereceipe && (
+          <Grid item xs={12}>
+            <IngTable data={cakereceipe} />
+          </Grid>
+        )}
+        {frostingreceipe && (
+          <Grid item xs={12}>
+            <IngTable data={frostingreceipe} />
+          </Grid>
+        )}
       </Grid>
     </div>
   );
