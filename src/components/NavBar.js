@@ -101,14 +101,14 @@ const NavBar = (props) => {
                   <div>
                     <List>
                       <ListItem onClick={() => handleClose("/not-so-sweet")}>
-                        <ListItemText primary="PREMIUM RECEIPE" />
+                        <ListItemText primary="ALL ABOUT CHIFFON" />
                       </ListItem>
                       <ListItem
                         onClick={() =>
                           handleClose("/not-so-sweet/outsourcereceipe")
                         }
                       >
-                        <ListItemText primary="EXPORE RECEIPE" />
+                        <ListItemText primary="EXPORE RECEIPES" />
                       </ListItem>
                       {/* <Divider /> */}
                       <ListItem
@@ -140,13 +140,13 @@ const NavBar = (props) => {
                 className={classes.button}
                 onClick={() => handleClose("/not-so-sweet")}
               >
-                premium receipe
+                ALL ABOUT CHIFFON
               </Button>
               <Button
                 className={classes.button}
                 onClick={() => handleClose("/not-so-sweet/outsourcereceipe")}
               >
-                expore receipe
+                expore receipes
               </Button>
               <Button
                 className={classes.button}

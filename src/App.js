@@ -59,7 +59,7 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: ["Kanit", "Varela Round", "cursive"].join(","),
+    fontFamily: ["Kanit", "Varela Round"].join(","),
   },
 });
 
